@@ -176,3 +176,28 @@ header p {
 .btn-csv:hover {
   background: #d35400;
 }
+
+.encabezado {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* centra el contenido */
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.logo {
+  height: 100px;
+  width: auto;
+}
+
+.titulo {
+  text-align: center;
+}
+
+.titulo h1 {
+  margin: 0;
+}
+
+.titulo p {
+  margin: 5px 0 0 0;
+}

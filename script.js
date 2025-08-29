@@ -1,3 +1,5 @@
+let pasoActual = "inicio";
+let historial = [];
 const flujo = {
   inicio: {
     pregunta: "¿Cuál es tu situación actual?",
@@ -1781,7 +1783,7 @@ const flujo = {
 // ===================
 // VARIABLES DE ESTADO
 // ===================
-let pasoActual = null;
+// let pasoActual = null; // Eliminado para evitar redeclaración
 let temporizador = null;
 let segundos = 0;
 let nombreUsuario = "";
@@ -1865,7 +1867,16 @@ function mostrarPregunta(id) {
     return;
   }
 
-  // Para otros nodos con opciones
+  // Determinar si se debe mostrar el botón Atrás
+  let mostrarAtras = true;
+  if (
+    id === "inicio" ||
+    nodo.pregunta === "¿Cuál es tu situación actual?" ||
+    (nodo.tipo === "informativo" && nodo.siguiente === "finalizar")
+  ) {
+    mostrarAtras = false;
+  }
+
   const opcionesHTML = nodo.opciones
     ? nodo.opciones.map(op => 
         `<button onclick="irA('${op.siguiente}', '${op.valor}', '${nodo.pregunta}', '${op.texto}')">${op.texto}</button>`
@@ -1874,7 +1885,8 @@ function mostrarPregunta(id) {
 
   preguntaContainer.innerHTML = `
     <p><strong>${nodo.pregunta}</strong></p>
-    ${nodo.opciones ? `<div class="opciones">${opcionesHTML}</div>` : ""}
+    ${nodo.opciones ? `<div class=\"opciones\">${opcionesHTML}</div>` : ""}
+    ${mostrarAtras ? `<div style=\"margin-top:24px;text-align:center;\"><button onclick=\"volverAtras()\" class=\"btn btn-atras\">⬅️ Atrás</button></div>` : ""}
   `;
 }
 
@@ -1884,8 +1896,16 @@ function irA(proximo, valor = null, preguntaTexto = "", respuestaTexto = "") {
     respuestas[preguntaTexto] = respuestaTexto;
   }
   if (proximo) {
+    historial.push(pasoActual);
     pasoActual = proximo;
     mostrarPregunta(proximo);
+  }
+}
+
+function volverAtras() {
+  if (historial.length > 0) {
+    pasoActual = historial.pop();
+    mostrarPregunta(pasoActual);
   }
 }
 
@@ -1915,6 +1935,7 @@ function reiniciarEncuesta() {
   pasoActual = "inicio";
   segundos = 0;
   respuestas = {};
+  historial = [];
   tokenUsuario = generarToken();
   contadorDiv.classList.remove("oculto");
   contadorDiv.textContent = `Tiempo: 00:00`;
