@@ -30,7 +30,7 @@ const flujo = {
     opciones: [
       {
         valor: "alto_nivel",
-        texto: "Equivalente o Superior a Director General del Poder Ejecutivo de la Ciudad, o máxima autoridad de Ente Descentralizado o Sociedad de la Ciudad",
+        texto: "Funcionario Público con rango equivalente o superior a Director/a General del Poder Ejecutivo de la Ciudad, o máxima autoridad de ente descentralizado o empresa de la Ciudad",
         siguiente: "actividad_alto_cargo"
       },
       {
@@ -57,7 +57,7 @@ const flujo = {
       },
       {
         valor: "titular_ente_regulador",
-        texto: "Soy titular o integrante de alguno de los órganos de Gobierno del Ente Regulador de Servicios Públicos (art. 28)",
+        texto: "Soy titular o integrante de alguno de los órganos de Gobierno del Ente Regulador de Servicios Públicos",
         siguiente: "respuesta_titular_ente_regulador"
       },
       {
@@ -90,7 +90,7 @@ const flujo = {
       {
         valor: "otra_actividad_privada",
         texto: "Privada",
-        siguiente: "respuesta_otra_privada"
+        siguiente: "siguiente_privada_empresa"
       }
     ]
   },
@@ -113,32 +113,15 @@ const flujo = {
   },
 
   final_otra_publica: {
-    pregunta: "En principio no hay incompatibilidad para GCABA pero, en relación a otros regímenes publicos, podría configurarse alguna incompatibilidad. Se recomienda consultar con la OFIP.",
+    pregunta: "En principio no hay incompatibilidad para GCABA. Sin embargo, tené en cuenta que tu otro cargo podría tener un régimen que sí lo establezca.",
     tipo: "informativo",
     siguiente: "finalizar"
   },
 
   final_otra_publica_docencia: {
-    pregunta: "En principio, la actividad docente que desarrollas simultaneamente no configura un conflicto de intereses, de todos modos, se sugiere que consultes tu situación con la OFIP.",
+    pregunta: "En principio, la actividad docente que desarrollas simultáneamente no configura una incompatibilidad, de todos modos, se sugiere que consultes tu situación con la OFIP. ",
     tipo: "informativo",
     siguiente: "finalizar"
-  },
-
-  respuesta_otra_privada: {
-    pregunta: "Privada",
-    tipo: "multiple_choice",
-    opciones: [
-      {
-        valor: "otra_actividad_privada_empresa",
-        texto: "Es en una empresa y/o institución privada",
-        siguiente: "siguiente_privada_empresa"
-      },
-      {
-        valor: "otra_actividad_privada_individual",
-        texto: "En forma autónoma, individual, personal o independiente",
-        siguiente: "siguiente_privada_individual"
-      }
-    ]
   },
 
   siguiente_privada_individual: {
@@ -160,32 +143,27 @@ const flujo = {
   },
 
   siguiente_privada_empresa: {
-    pregunta: "En ella",
+    pregunta: "En la cual",
     tipo: "multiple_choice",
     opciones: [
       {
-        valor:"privada_individual_negocio",
-        texto: "Ejerzo negocio, empresa, actividad comercial o profesión liberal (de cualquier naturaleza) (art. 27 inc. a)",
-        siguiente: "siguiente_privada_negocio"
-      },
-      {
         valor:"privada_individual_socio",
-        texto: "Soy socio, asociado, directivo, presto servicios a instituciones no estatales dedicadas a la defensa o representación de intereses económicos sectoriales (art. 27 inc. c)",
+        texto: "Soy socio, asociado, directivo, presto servicios a instituciones no estatales dedicadas a la defensa o representación de intereses económicos sectoriales",
         siguiente: "siguiente_privada_socio"
       },
       {
         valor:"privada_individual_servicios",
-        texto: "Presto servicios, gestiono, dirijo, administro, represento, patrocino, ejerzo profesión liberal, mantengo relaciones contractuales con individuos/empresas/instituciones art. 26 inc. A - inc. C - art. 27 inc. b",
+        texto: "Presto servicios, gestiono, dirijo, administro, represento, patrocino, ejerzo profesión liberal, mantengo relaciones contractuales con individuos/empresas/instituciones",
         siguiente: "siguiente_privada_servicios"
       },
       {
         valor:"privada_individual_bienes",
-        texto: "Proveo bienes o servicios (en forma personal o por terceros) al organismo en el que ejerzo funciones o a entidades bajo mi jurisdicción art. 26 inc. b",
+        texto: "Proveo bienes o servicios (en forma personal o por terceros) al organismo en el que ejerzo funciones o a entidades bajo mi jurisdicción",
         siguiente: "final_privada_bienes"
       },
       {
         valor:"privada_individual_abogacia",
-        texto: "Ejerzo la abogacía judicial o extrajudicialmente en causas contra la Ciudad Autónoma de Buenos Aires art. 26 inc. d",
+        texto: "Ejerzo la abogacía judicial o extrajudicialmente en causas contra la Ciudad Autónoma de Buenos Aires",
         siguiente: "final_privada_abogacia"
       },
       {
@@ -203,13 +181,13 @@ const flujo = {
   },
 
   final_privada_abogacia: {
-    pregunta: "La actividad sólo es permitida en causa propia o por hijos menores no emancipados o con capacidad restingida. Toda actividad profesional judicial o extrajudiicial contra la Ciudad Autónoma de Buenos Aires, incluyendo actuar como perito, es incompatible.",
+    pregunta: "La actividad sólo es permitida en causa propia o por hijos menores no emancipados o con capacidad restingida. Toda actividad profesional judicial o extrajudicial contra la Ciudad Autónoma de Buenos Aires, incluyendo actuar como perito, es incompatible.",
     tipo: "informativo",
     siguiente: "finalizar"
   },
 
   final_privada_bienes: {
-    pregunta: "Estás ante una incompatibilidad. Consultá tu situación en la OFIP.",
+    pregunta: "Estarías realizando una actividad privada sobre la cual se configura una incompatiblidad. Te recomendamos consultar tu situación en la OFIP.",
     tipo: "informativo",
     siguiente: "finalizar"
   },
@@ -220,17 +198,17 @@ const flujo = {
     opciones: [
       {
         valor:"competencia_art26",
-        texto: "Poseo alguna competencia, decisoria o no, en relación a ellos. art. 26 inc. a",
+        texto: "Poseo alguna competencia, decisoria o no, en relación a ellos",
         siguiente: "final_competencia_art26"
       },
       {
         valor:"organismo_art26",
-        texto: "El organismo donde presto funciones lo fizcaliza directamente. art. 26 inc. c",
+        texto: "El organismo donde presto funciones lo fizcaliza directamente",
         siguiente: "final_organismo_art26"
       },
       {
         valor:"influencia_art27",
-        texto: "Puedo influir en la decisión de la autoridad de mi jurisdicción o alterar el principio de igualdad ante la ley. art. 27 inc. b",
+        texto: "Puedo influir en la decisión de la autoridad de mi jurisdicción o alterar el principio de igualdad ante la ley",
         siguiente: "final_influencia_art27"
       },
       {
@@ -242,27 +220,59 @@ const flujo = {
   },
 
   final_competencia_art26: {
-    pregunta: "Estarías realizando una actividad privada sobre la se configura una incompatiblidad. Te recomendamos consultar tu situación en la OFIP.",
+    pregunta: "Estarías realizando una actividad privada sobre la cual se configura una incompatiblidad. Te recomendamos consultar tu situación en la OFIP",
     tipo: "informativo",
     siguiente: "finalizar"
   },
 
   final_organismo_art26: {
-    pregunta: "Estarías realizando una actividad privada sobre la se configura una incompatiblidad. Te recomendamos consultar tu situación en la OFIP.",
+    pregunta: "Estarías realizando una actividad privada sobre la cual se configura una incompatiblidad. Te recomendamos consultar tu situación en la OFIP",
     tipo: "informativo",
     siguiente: "finalizar"
   },
 
   final_influencia_art27: {
-    pregunta: "Estarías realizando una actividad privada sobre la se configura una incompatiblidad. Te recomendamos consultar tu situación en la OFIP.",
+    pregunta: "Estarías realizando una actividad privada sobre la cual se configura una incompatiblidad. Te recomendamos consultar tu situación en la OFIP",
     tipo: "informativo",
     siguiente: "finalizar"
   },
 
   final_servicios_ninguna: {
-    pregunta: "En principio, la actividad es compatible con el ejercicio de la función pública. Igualmente, se sugiere que consultes con la OFIP.",
-    tipo: "informativo",
-    siguiente: "finalizar"
+    pregunta: "En esa actividad ¿Tenes vinculaciones con organismos o empresas de la ciudad?",
+    tipo: "multiple_choice",
+    opciones: [
+      {
+        valor:"socio_si",
+        texto: "Si",
+        siguiente: "final_servicios_ninguna_si"
+
+      },
+      {
+        valor:"socio_no",
+        texto: "No",
+        siguiente: "final_socio_no"
+
+      }
+    ]
+  },
+
+  final_servicios_ninguna_si: {
+    pregunta: "¿Es una actividad docente?",
+    tipo: "multiple_choice",
+    opciones: [
+      {
+        valor:"socio_docente_si",
+        texto: "Si",
+        siguiente: "final_negocio_docente_si"
+
+      },
+      {
+        valor:"socio_docente_no",
+        texto: "No",
+        siguiente: "final_socio_si"
+
+      }
+    ]
   },
 
   siguiente_privada_socio: {
@@ -283,7 +293,7 @@ const flujo = {
   },
 
   final_socio_si: {
-    pregunta: "Podrías estar realizando una actividad privada sobre la cual es factible que se configure un conflicto de interés. Te recomendamos consultar tu situación en la OFIP.",
+    pregunta: "Podrías estar realizando una actividad privada sobre la cual es factible que se configure una incompatibilidad. Te recomendamos consultar tu situación en la OFIP.",
     tipo: "informativo",
     siguiente: "finalizar"
   },
@@ -352,7 +362,7 @@ const flujo = {
     opciones: [
       {
         valor: "futura_construir",
-        texto: "Voy a construir una sociedad o a adquirir participación en una existente (art. 27 inc. d)",
+        texto: "Voy a construir una sociedad o a adquirir participación en una existente",
         siguiente: "siguiente_futura_construir"
       },
       {
@@ -363,7 +373,7 @@ const flujo = {
       {
         valor: "futura_actividad_privada",
         texto: "Actividad privada",
-        siguiente: "respuesta_otra_privada"
+        siguiente: "siguiente_privada_empresa"
       }
     ]
   },
@@ -432,13 +442,13 @@ const flujo = {
   },
 
   final_funcion_publica_no: {
-    pregunta: "En principio no hay incompatibilidad para GCABA pero, en relación a otros regímenes publicos, podría configurarse alguna incompatibilidad. Se recomienda consultar con la OFIP.",
+    pregunta: "En principio no hay incompatibilidad para GCABA. Sin embargo, tené en cuenta que tu otro cargo podría tener un régimen que sí lo establezca.",
     tipo: "informativo",
     siguiente: "finalizar"
   },
 
   siguiente_funcion_publica_si: {
-    pregunta: "En tu cargo público actual interveniste en la planificación, desarrollo o concreción de privatizaciones o concesiones de servicio público? art. 50",
+    pregunta: "En tu cargo público actual interveniste en la planificación, desarrollo o concreción de privatizaciones o concesiones de servicio público?",
     tipo: "multiple_choice",
     opciones: [
       {
@@ -484,7 +494,7 @@ const flujo = {
   },
 
   siguiente_siguiente_funcion_publica_no: {
-    pregunta: "Su cargo nuevo es en un organismo que controla o regula la entidad privatizada o regulada? art. 50",
+    pregunta: "Su cargo nuevo es en un organismo que controla o regula la entidad privatizada o regulada?",
     tipo: "multiple_choice",
     opciones: [
       {
@@ -536,13 +546,13 @@ const flujo = {
   },
 
   final_antes_asumir_publica: {
-    pregunta: "No se visualiza una situación de conflicto de interses pueden ser propietarios/as ni tener interés alguno, directo o indirecto, en empresas sujetas a su ámbito de regulación y control.",
+    pregunta: "No se visualiza una situación de conflicto de interses o incompatibilidad.",
     tipo: "informativo",
     siguiente: "finalizar"
   },
 
   siguiente_antes_asumir_privada: {
-    pregunta: "En el ejercicio del cargo, tomaste intervención en asuntos vinculados a las sociedades de las que fuiste socio/a o de las que formaste parte del órgano de administración o de su controlante? (art.37 inc. a y b)",
+    pregunta: "En el ejercicio del cargo, tomaste intervención en asuntos vinculados a las sociedades de las que fuiste socio/a o de las que formaste parte del órgano de administración o de su controlante?",
     tipo: "multiple_choice",
     opciones: [
       {
@@ -587,7 +597,7 @@ const flujo = {
   },
 
   final_asumir_privada_socio: {
-    pregunta: "Si sos socio e interveniste desde el cargo público, tu actuación se realizó en conflicto de interés. Consultá a la OIP para evaluar la situación.",
+    pregunta: "Si sos socio e interveniste desde el cargo público, tu actuación se realizó en conflicto de interés. Consultá a la OFIP para evaluar la situación.",
     tipo: "informativo",
     siguiente: "finalizar"
   },
@@ -610,42 +620,42 @@ const flujo = {
     opciones: [
       {
         valor: "socio_empresa_regulada",
-        texto: "Está regulada o puede verse afectada en su actividad o cotización por decisiones que desde la función pública puedo tomar (art. 27 inc. d)",
+        texto: "Está regulada o puede verse afectada en su actividad o cotización por decisiones que desde la función pública puedo tomar.",
         siguiente: "final_socio_empresa_regulada"
       },
       {
         valor: "socio_empresa_presta_servicios",
-        texto: "Presta servicios, gestiona, dirije, administra, representa o patrocina a individuos/empresas/instituciones sobre los que, por mi cargo, poseo alguna competencia (sean o no decisorias) art. 26 inc. a",
+        texto: "Presta servicios, gestiona, dirije, administra, representa o patrocina a individuos/empresas/instituciones sobre los que, por mi cargo, poseo alguna competencia (sean o no decisorias).",
         siguiente: "final_socio_empresa_presta_servicios"
       },
       {
         valor: "socio_empresa_bienes",
-        texto: "Provee o va a proveer bienes o servicios al organismo en el que ejerzo funciones o a las entidades que se encuentran bajo su jurisdicción (art. 26 inc.b)",
+        texto: "Provee o va a proveer bienes o servicios al organismo en el que ejerzo funciones o a las entidades que se encuentran bajo su jurisdicción.",
         siguiente: "final_socio_empresa_bienes"
       },
       {
         valor: "socio_empresa_dirije",
-        texto: "Dirije, administra, representa, patrocina, asesora, presta servicios, mantiene relaciones contractuales con individuos/empresas/institución que, por el organismo en el que ejerzo mi cargo, se encuentra directamente fiscalizado art. 26 inc. c",
+        texto: "Dirije, administra, representa, patrocina, asesora, presta servicios, mantiene relaciones contractuales con individuos/empresas/institución que, por el organismo en el que ejerzo mi cargo, se encuentra directamente fiscalizado.",
         siguiente: "final_socio_empresa_dirije"
       },
       {
         valor: "socio_empresa_abogado",
-        texto: "Ejerce la abogacía judicial o extrajudicialmente en causas contra la Ciudad Autónoma de Buenos Aires art. 26 inc. d",
+        texto: "Ejerce la abogacía judicial o extrajudicialmente en causas contra la Ciudad Autónoma de Buenos Aires.",
         siguiente: "final_socio_empresa_abogado"
       },
       {
         valor: "socio_empresa_social",
-        texto: "Su objeto social es concurrente con los intereses públicos que mi cargo debo tutelar (art. 27 inc. c)",
+        texto: "Su objeto social es concurrente con los intereses públicos que mi cargo debo tutelar.",
         siguiente: "final_socio_empresa_social"
       },
       {
         valor: "socio_empresa_vinculacion",
-        texto: "Directa o inderectamente, tiene vinculaciones con organismos o empresas de la Ciudad Autónoma de Buenos Aires (art. 27 inc. a)",
+        texto: "Directa o inderectamente, tiene vinculaciones con organismos o empresas de la Ciudad Autónoma de Buenos Aires.",
         siguiente: "final_socio_empresa_vinculacion"
       },
       {
         valor: "socio_empresa_actividades",
-        texto: "Desempeña actividades por las cuales, en razón de mi cargo, puedo influir en las decisiones de la autoridad competente de mi jurisdicción o alterar el principio de igualdad. art. 27. inc. b",
+        texto: "Desempeña actividades por las cuales, en razón de mi cargo, puedo influir en las decisiones de la autoridad competente de mi jurisdicción o alterar el principio de igualdad.",
         siguiente: "final_socio_empresa_actividades"
       },
       {
@@ -657,7 +667,7 @@ const flujo = {
   },
 
   final_socio_empresa_regulada: {
-    pregunta: "Se encuentra en una situación de conflicto de Interes que debe ser abordada conforme a la normativa, ya sea enajenando su participación societaria o constituyendo un fideicomiso. Sugerimos ponerse en contacto con la OFIP",
+    pregunta: "Se encuentra en una situación de incompatibilidad que debe ser abordada conforme a la normativa. Sugerimos ponerse en contacto con la OFIP",
     tipo: "informativo",
     siguiente: "finalizar"
   },
@@ -669,7 +679,7 @@ const flujo = {
   },
 
   final_socio_empresa_bienes: {
-    pregunta: "Usted se encuentra realizando una actividad incompatible con la función pública que cumple. Comuníquese con la OFIP",
+    pregunta: "Podrías estar realizando una actividad privada sobre la cual es factible que se configure una incompatiblidad. Te recomendamos consultar tu situación en la OFIP",
     tipo: "informativo",
     siguiente: "finalizar"
   },
@@ -681,25 +691,25 @@ const flujo = {
   },
 
   final_socio_empresa_abogado: {
-    pregunta: "La actividad sólo es permitida en causa propia o por hijos menores no emancipados o con capacidad restingida. Toda actividad profesional judicial o extrajudiicial contra la Ciudad Autónoma de Buenos Aires, incluyendo actuar como perito, es incompatible",
+    pregunta: "La actividad sólo es permitida en causa propia o por hijos menores no emancipados o con capacidad restingida. Toda actividad profesional judicial o extrajudicial contra la Ciudad Autónoma de Buenos Aires, incluyendo actuar como perito, es incompatible.",
     tipo: "informativo",
     siguiente: "finalizar"
   },
 
   final_socio_empresa_social: {
-    pregunta: "Usted se encuentra realizando una actividad incompatible con la función pública que cumple. Comuníquese con la OFIP",
+    pregunta: "Podrías estar realizando una actividad privada sobre la cual es factible que se configure una incompatiblidad. Te recomendamos consultar tu situación en la OFIP.",
     tipo: "informativo",
     siguiente: "finalizar"
   },
 
   final_socio_empresa_vinculacion: {
-    pregunta: "Usted se encuentra realizando una actividad incompatible con la función pública que cumple. Comuníquese con la OFIP",
+    pregunta: "Podrías estar realizando una actividad privada sobre la cual es factible que se configure una incompatiblidad. Te recomendamos consultar tu situación en la OFIP",
     tipo: "informativo",
     siguiente: "finalizar"
   },
 
   final_socio_empresa_actividades: {
-    pregunta: "Usted se encuentra realizando una actividad incompatible con la función pública que cumple. Comuníquese con la OFIP",
+    pregunta: "Podrías estar realizando una actividad privada sobre la cual es factible que se configure una incompatiblidad. Te recomendamos consultar tu situación en la OFIP",
     tipo: "informativo",
     siguiente: "finalizar"
   },
@@ -716,12 +726,12 @@ const flujo = {
     opciones: [
       {
         valor: "bonos_anonimas",
-        texto: "Sociedades anónimas que hacen oferta pública o cotización de sus acciones y que su actividad se encuentra sujeta al ámbito de mi competencia o su cotización puede verse influenciada por los actos que emita. art. 30 inc. a",
+        texto: "Sociedades anónimas que hacen oferta pública o cotización de sus acciones y que su actividad se encuentra sujeta al ámbito de mi competencia o su cotización puede verse influenciada por los actos que emita.",
         siguiente: "final_bonos_anonimas"
       },
       {
         valor: "bonos_comerciales",
-        texto: "Sociedades comerciales que no hacen oferta pública o cotización de sus acciones y que su actividad se encuentra sujeta al ámbito de mi competencia y por una cantidad suficiente para formar la voluntad social o controlarla por cualquier medio. art. 30 inc. b",
+        texto: "Sociedades comerciales que no hacen oferta pública o cotización de sus acciones y que su actividad se encuentra sujeta al ámbito de mi competencia y por una cantidad suficiente para formar la voluntad social o controlarla por cualquier medio.",
         siguiente: "final_bonos_comerciales"
       },
       {
@@ -745,7 +755,7 @@ const flujo = {
   },
 
   final_bonos_ninguna: {
-    pregunta: "En principio, no se visualiza una situación de conflicto de interses. Sin embargo, se le recuerda que debe excusarse y abstenerse de intervenir durante su gestión, y hasta que haya cesado la causa, en los supuestos relacionados con sociedades comerciales en las que tenga alguna participación societaria, mientras mantenga su titularidad. art. 37 inc. a",
+    pregunta: "En principio, no se visualiza una situación de conflicto de interses. Sin embargo, se le recuerda que debe excusarse y abstenerse de intervenir durante su gestión, y hasta que haya cesado la causa, en los supuestos relacionados con sociedades comerciales en las que tenga alguna participación societaria, mientras mantenga su titularidad.",
     tipo: "informativo",
     siguiente: "finalizar"
   },
@@ -763,11 +773,6 @@ const flujo = {
         valor: "agente_publico_previsto_desarrollar",
         texto: "Tengo previsto desarrollar otra actividad",
         siguiente: "siguiente_agente_publico_previsto_desarrollar"
-      },
-      {
-        valor: "agente_publico_titular",
-        texto: "Soy titular o integrante de alguno de los órganos de gobierno del Ente Regulador de Servicios Públicos (art. 28)",
-        siguiente: "final_agente_publico_titular"
       },
       {
         valor: "agente_publico_desarrolle_actividad",
@@ -788,22 +793,22 @@ const flujo = {
     opciones: [
       {
         valor: "siguiente_agente_publico_soy_empresa_servicios",
-        texto: "Presta servicios, gestiona, dirije, administre, representa, patrocina a individuos/empresas/institución sobre los que, por mi cargo, poseo alguna competencia (sean o no decisorias) art. 26 inc. a",
+        texto: "Presta servicios, gestiona, dirije, administre, representa, patrocina a individuos/empresas/institución sobre los que, por mi cargo, poseo alguna competencia (sean o no decisorias)",
         siguiente: "final_siguiente_agente_publico_soy_empresa_servicios"
       },
       {
         valor: "siguiente_agente_publico_soy_empresa_bienes",
-        texto: "Provee o va a proveer bienes o servicios al organismo en el que ejerzo funciones o a las entidades que se encuentran bajo su jurisdicción (art. 26 inc.b)",
+        texto: "Provee o va a proveer bienes o servicios al organismo en el que ejerzo funciones o a las entidades que se encuentran bajo su jurisdicción",
         siguiente: "final_siguiente_agente_publico_soy_empresa_bienes"
       },
       {
         valor: "siguiente_agente_publico_soy_empresa_dirije",
-        texto: "Dirije, administra, representa, patrocina, asesora, presta servicios, mantiene relaciones contractuales con individuos/empresas/institución que, por el organismo en el que ejerzo mi cargo, se encuentra directamente fiscalizado art. 26 inc. c",
+        texto: "Dirije, administra, representa, patrocina, asesora, presta servicios, mantiene relaciones contractuales con individuos/empresas/institución que, por el organismo en el que ejerzo mi cargo, se encuentra directamente fiscalizado",
         siguiente: "final_siguiente_agente_publico_soy_empresa_dirije"
       },
       {
         valor: "siguiente_agente_publico_soy_empresa_abogado",
-        texto: "Ejerce la abogacía judicial o extrajudicialmente en causas contra la Ciudad Autónoma de Buenos Aires art. 26 inc. d",
+        texto: "Ejerce la abogacía judicial o extrajudicialmente en causas contra la Ciudad Autónoma de Buenos Aires",
         siguiente: "final_siguiente_agente_publico_soy_empresa_abogado"
       },
       {
@@ -821,7 +826,7 @@ const flujo = {
   },
 
   final_siguiente_agente_publico_soy_empresa_bienes: {
-    pregunta: "Usted se encuentra realizando una actividad incompatible con la función pública que cumple. Comuníquese con la OFIP",
+    pregunta: "Podrías estar realizando una actividad privada sobre la cual es factible que se configure una incompatiblidad. Te recomendamos consultar tu situación en la OFIP",
     tipo: "informativo",
     siguiente: "finalizar"
   },
@@ -833,7 +838,7 @@ const flujo = {
   },
 
   final_siguiente_agente_publico_soy_empresa_abogado: {
-    pregunta: "La actividad sólo es permitida en causa propia o por hijos menores no emancipados o con capacidad restingida. Toda actividad profesional judicial o extrajudiicial contra la Ciudad Autónoma de Buenos Aires, incluyendo actuar como perito, es incompatible",
+    pregunta: "La actividad sólo es permitida en causa propia o por hijos menores no emancipados o con capacidad restingida. Toda actividad profesional judicial o extrajudicial contra la Ciudad Autónoma de Buenos Aires, incluyendo actuar como perito, es incompatible.",
     tipo: "informativo",
     siguiente: "finalizar"
   },
@@ -862,13 +867,13 @@ const flujo = {
   },
 
   final_siguiente_agente_publico_desarrolle_actividad_publica: {
-    pregunta: "No se visualiza una situación de conflicto de interses",
+    pregunta: "No se visualiza una situación de conflicto de interses o incompatibilidad.",
     tipo: "informativo",
     siguiente: "finalizar"
   },
 
   siguientex2_agente_publico_desarrolle_actividad_privada: {
-    pregunta: "En el ejercicio del cargo, tomaste intervención en asuntos vinculados a las sociedades de las que fuiste socio/a o de las que formaste parte del órgano de administración o de su controlante? (art.37 inc. a y b)",
+    pregunta: "En el ejercicio del cargo, tomaste intervención en asuntos vinculados a las sociedades de las que fuiste socio/a o de las que formaste parte del órgano de administración o de su controlante?",
     tipo: "multiple_choice",
     opciones: [
       {
@@ -913,7 +918,7 @@ const flujo = {
   },
 
   final_siguientex3_agente_publico_desarrolle_actividad_privada_si_socio: {
-    pregunta: "Si sos socio e interveniste desde el cargo público, tu actuación se realizó en conflicto de interés. Consultá a la OIP para evaluar la situación",
+    pregunta: "Si sos socio e interveniste desde el cargo público, tu actuación se realizó en conflicto de interés. Consultá a la OFIP para evaluar la situación.",
     tipo: "informativo",
     siguiente: "finalizar"
   },
@@ -948,7 +953,7 @@ const flujo = {
       {
         valor: "agente_publico_previsto_desarrollar_privada",
         texto: "Actividad privada",
-        siguiente: ""
+        siguiente: "siguiente_agente_publico_desarrollo_actividad_privada_institucion"
       }
     ]
   },
@@ -971,13 +976,13 @@ const flujo = {
   },
 
   final_siguiente_agente_publico_previsto_desarrollar_publica_no: {
-    pregunta: "Está vedado el ejercicio de cualquier empleo o función pública a nivel nacional, provincial, municipal o de la Ciudad, salvo que el Poder Ejecutivo, fundadamente, lo autorice. Con la única excepción de la docencia *Ley 471",
+    pregunta: "Está vedado el ejercicio de cualquier empleo o función pública a nivel nacional, provincial, municipal o de la Ciudad, salvo que el Poder Ejecutivo, fundadamente, lo autorice. Con la única excepción de la docencia.",
     tipo: "informativo",
     siguiente: "finalizar"
   },
 
   siguientex2_agente_publico_previsto_desarrollar_publica_si: {
-    pregunta: "En tu cargo público actual interveniste en la planificación, desarrollo o concreción de privatizaciones o concesiones de servicio público? art. 50",
+    pregunta: "En tu cargo público actual interveniste en la planificación, desarrollo o concreción de privatizaciones o concesiones de servicio público?",
     tipo: "multiple_choice",
     opciones: [
       {
@@ -1023,18 +1028,18 @@ const flujo = {
   },
 
   final_siguientex3_agente_publico_previsto_desarrollar_publica_si_nox2: {
-    pregunta: "Su cargo nuevo es en un organismo que controla o regula la entidad privatizada o regulada? art. 50",
+    pregunta: "Su cargo nuevo es en un organismo que controla o regula la entidad privatizada o regulada?",
     tipo: "multiple_choice",
     opciones: [
       {
         valor: "final_siguientex3_agente_publico_previsto_desarrollar_publica_si_nox2_si",
         texto: "Si",
-        siguiente: "final_siguientex3_agente_publico_previsto_desarrollar_publica_si_nox2_six2"
+        siguiente: "final_siguientex3_agente_publico_previsto_desarrollar_publica_si_nox4"
       },
       {
         valor: "final_siguientex3_agente_publico_previsto_desarrollar_publica_si_nox3",
         texto: "No",
-        siguiente: "final_siguientex3_agente_publico_previsto_desarrollar_publica_si_nox4"
+        siguiente: "final_siguientex3_agente_publico_previsto_desarrollar_publica_si_nox2_six2"
       }
     ]
   },
@@ -1046,7 +1051,7 @@ const flujo = {
   },
 
   final_siguientex3_agente_publico_previsto_desarrollar_publica_si_nox4: {
-    pregunta: "CONSULTE A LA OFIP.La ley de Integridad Pública establece que durante 3 años desde que se finalizó la función pública, los/las funcionarios/as públicos/as que hayan intervenido con capacidad decisoria en la planificación, desarrollo y concreción de privatizaciones o concesiones de servicios públicos, no pueden actuar en los organismos que controlen o regulen su actividad durante tres (3) años a contar desde la última intervención que hubieren tenido en los respectivos procesos.",
+    pregunta: "CONSULTE A LA OFIP. La ley de Integridad Pública establece que durante 3 años desde que se finalizó la función pública, los/las funcionarios/as públicos/as que hayan intervenido con capacidad decisoria en la planificación, desarrollo y concreción de privatizaciones o concesiones de servicios públicos, no pueden actuar en los organismos que controlen o regulen su actividad durante tres (3) años a contar desde la última intervención que hubieren tenido en los respectivos procesos.",
     tipo: "informativo",
     siguiente: "finalizar"
   },
@@ -1063,7 +1068,7 @@ const flujo = {
       {
         valor: "siguiente_agente_publico_desarrollo_actividad_privada",
         texto: "Privada",
-        siguiente: "siguientex2_agente_publico_desarrollo_actividad_privada"
+        siguiente: "siguiente_agente_publico_desarrollo_actividad_privada_institucion"
       }
     ]
   },
@@ -1097,40 +1102,23 @@ const flujo = {
     siguiente: "finalizar"
   },
 
-  siguientex2_agente_publico_desarrollo_actividad_privada: {
-    pregunta: "",
-    tipo: "multiple_choice",
-    opciones: [
-      {
-        valor: "agente_publico_desarrollo_actividad_privada_institucion",
-        texto: "Es una empresa y/o institución privada",
-        siguiente: "siguiente_agente_publico_desarrollo_actividad_privada_institucion"
-      },
-      {
-        valor: "agente_publico_desarrollo_actividad_privada_independiente",
-        texto: "En forma autónoma, individual, personal o independiente",
-        siguiente: "siguiente_privada_individual"
-      }
-    ]
-  },
-
   siguiente_agente_publico_desarrollo_actividad_privada_institucion: {
-    pregunta: "En ella",
+    pregunta: "En la cual",
     tipo: "multiple_choice",
     opciones: [
       {
         valor: "siguiente_agente_publico_desarrollo_actividad_privada_institucion_servicios",
-        texto: "Presto servicios, gestiono, dirijo, administro, represento, patrocino, mantengo relaciones contractuales con individuos/empresas/instituciones art. 26 inc. A - inc. C",
+        texto: "Presto servicios, gestiono, dirijo, administro, represento, patrocino, mantengo relaciones contractuales con individuos/empresas/instituciones.",
         siguiente: "siguientex2_agente_publico_desarrollo_actividad_privada_institucion_servicios"
       },
       {
         valor: "siguiente_agente_publico_desarrollo_actividad_privada_institucion_bienes",
-        texto: "Proveo bienes o servicios (en forma personal o por terceros) al organismo en el que ejerzo funciones o a entidades bajo mi jurisdicción art. 26 inc. b",
+        texto: "Proveo bienes o servicios (en forma personal o por terceros) al organismo en el que ejerzo funciones o a entidades bajo mi jurisdicción.",
         siguiente: "final_siguiente_agente_publico_desarrollo_actividad_privada_institucion_bienes"
       },
       {
         valor: "siguiente_agente_publico_desarrollo_actividad_privada_institucion_abogacia",
-        texto: "Ejerzo la abogacía judicial o extrajudicialmente en causas contra la Ciudad Autónoma de Buenos Aires art. 26 inc. d",
+        texto: "Ejerzo la abogacía judicial o extrajudicialmente en causas contra la Ciudad Autónoma de Buenos Aires.",
         siguiente: "final_siguiente_agente_publico_desarrollo_actividad_privada_institucion_abogacia"
       },
       {
@@ -1142,13 +1130,13 @@ const flujo = {
   },
 
   final_siguiente_agente_publico_desarrollo_actividad_privada_institucion_bienes: {
-    pregunta: "Estás ante una incompatibilidad. Consultá tu situación en la OFIP",
+    pregunta: "Estarías realizando una actividad privada sobre la cual se configura una incompatiblidad. Te recomendamos consultar tu situación en la OFIP.",
     tipo: "informativo",
     siguiente: "finalizar"
   },
 
   final_siguiente_agente_publico_desarrollo_actividad_privada_institucion_abogacia: {
-    pregunta: "La actividad sólo es permitida en causa propia o por hijos menores no emancipados o con capacidad restingida. Toda actividad profesional judicial o extrajudiicial contra la Ciudad Autónoma de Buenos Aires, incluyendo actuar como perito, es incompatible",
+    pregunta: "La actividad sólo es permitida en causa propia o por hijos menores no emancipados o con capacidad restingida. Toda actividad profesional judicial o extrajudicial contra la Ciudad Autónoma de Buenos Aires, incluyendo actuar como perito, es incompatible.",
     tipo: "informativo",
     siguiente: "finalizar"
   },
@@ -1159,12 +1147,12 @@ const flujo = {
     opciones: [
       {
         valor: "siguientex2_agente_publico_desarrollo_actividad_privada_institucion_servicios_poseo",
-        texto: "Poseo alguna competencia, decisoria o no, en relación a ellos. art. 26 inc. a",
+        texto: "Poseo alguna competencia, decisoria o no, en relación a ellos.",
         siguiente: "final_siguientex2_agente_publico_desarrollo_actividad_privada_institucion_servicios_poseo"
       },
       {
         valor: "siguientex2_agente_publico_desarrollo_actividad_privada_institucion_servicios_organismo",
-        texto: "El organismo donde presto funciones lo fizcaliza directamente. art. 26 inc. c",
+        texto: "El organismo donde presto funciones lo fizcaliza directamente.",
         siguiente: "final_siguientex2_agente_publico_desarrollo_actividad_privada_institucion_servicios_poseo"
       },
       {
@@ -1184,7 +1172,7 @@ const flujo = {
   // === RAMA 2: FUI FUNCIONARIO ===
 
   fui_funcionario: {
-    pregunta: "Fue sujeto obligado a presentar DDJJ art. 9",
+    pregunta: "Fue sujeto obligado a presentar declaración jurada",
     tipo: "multiple_choice",
     opciones: [
       {
@@ -1224,7 +1212,7 @@ const flujo = {
   },
 
   designado_siguiente: {
-    pregunta: "En tu anterior cargo público interveniste en la planificación, desarrollo o concreción de privatizaciones o concesiones de servicio público? art. 50",
+    pregunta: "En tu anterior cargo público interveniste en la planificación, desarrollo o concreción de privatizaciones o concesiones de servicio público?",
     tipo: "multiple_choice",
     opciones: [
       {
@@ -1299,7 +1287,7 @@ const flujo = {
   },
 
   fui_desarrollo_siguiente: {
-    pregunta: "¿Tendrá un cargo directivo/gerencial en una sociedad con la que tuvo vinculación desde la función pública y/o estuvo sujeta a su control, fiscalización o regulación por parte del organismo en el que desempeñé la función pública? art. 51",
+    pregunta: "¿Tendrá un cargo directivo/gerencial en una sociedad con la que tuvo vinculación desde la función pública y/o estuvo sujeta a su control, fiscalización o regulación por parte del organismo en el que desempeñó la función pública?",
     tipo: "multiple_choice",
     opciones: [
       {
@@ -1316,7 +1304,7 @@ const flujo = {
   },
 
   siguiente_fui_desarrollo_siguiente_si: {
-    pregunta: "¿Pasó un año desde que se desempeñó en la función pública? art. 51",
+    pregunta: "¿Pasó un año desde que se desempeñó en la función pública?",
     tipo: "multiple_choice",
     opciones: [
       {
@@ -1362,27 +1350,27 @@ const flujo = {
   },
 
   siguiente_fui_desarrollo_siguiente_no: {
-    pregunta: "Esta nueva actividad implica art. 49",
+    pregunta: "Esta nueva actividad implica",
     tipo: "multiple_choice",
     opciones: [
       {
         valor: "siguiente_fui_desarrollo_siguiente_no_gestion",
-        texto:"Realizar gestiones administrativas o representar a terceros ante el organismo donde trabajaste o ante entidades bajo tu jurisdicción. art. 49 inc. a",
+        texto:"Realizar gestiones administrativas o representar a terceros ante el organismo donde trabajaste o ante entidades bajo tu jurisdicción.",
         siguiente:"siguientex2_fui_desarrollo_siguiente_no_gestion"
       },
       {
         valor: "siguiente_fui_desarrollo_siguiente_no_participar",
-        texto:"Participar en juicios contra la Ciudad de Buenos Aires, ya sea como abogados, peritos o de cualquier otra forma art. 49 inc. b",
+        texto:"Participar en juicios contra la Ciudad de Buenos Aires, ya sea como abogados, peritos o de cualquier otra forma",
         siguiente:"siguientex2_fui_desarrollo_siguiente_no_participar"
       },
       {
         valor: "siguiente_fui_desarrollo_siguiente_no_bienes",
-        texto:"Vender bienes o servicios, obtener concesiones o adjudicaciones en el organismo donde trabajaste, ya sea directamente o a través de terceros art. 49 inc. c",
+        texto:"Vender bienes o servicios, obtener concesiones o adjudicaciones en el organismo donde trabajaste, ya sea directamente o a través de terceros",
         siguiente:"siguientex2_fui_desarrollo_siguiente_no_bienes"
       },
       {
         valor: "siguiente_fui_desarrollo_siguiente_no_relaciones",
-        texto:"Mantener relaciones contractuales con entidades directamente fiscalizadas por el organismo en que trabajaste art. 49 inc. d",
+        texto:"Mantener relaciones contractuales con entidades directamente fiscalizadas por el organismo en que trabajaste",
         siguiente:"siguientex2_fui_desarrollo_siguiente_no_relaciones"
       }
     ]
@@ -1423,7 +1411,7 @@ const flujo = {
   },
 
   siguientex2_fui_desarrollo_siguiente_no_participar: {
-    pregunta: "¿Participas en juicios contra la Ciudad de Buenos Aires, ya sea como abogado, perito o de cualquier otra forma? (art. 49 inc. b)",
+    pregunta: "¿Participas en juicios contra la Ciudad de Buenos Aires, ya sea como abogado, perito o de cualquier otra forma?",
     tipo: "multiple_choice",
     opciones: [
       {
@@ -1480,7 +1468,7 @@ const flujo = {
   },
 
   siguientex2_fui_desarrollo_siguiente_no_bienes: {
-    pregunta: "Vender bienes o servicios, obtener concesiones o adjudicaciones en el organismo donde trabajaste, ya sea directamente o a través de terceros art. 49 inc. c",
+    pregunta: "Vender bienes o servicios, obtener concesiones o adjudicaciones en el organismo donde trabajaste, ya sea directamente o a través de terceros",
     tipo: "multiple_choice",
     opciones: [
       {
@@ -1543,7 +1531,7 @@ const flujo = {
   },
 
   siguientex2_fui_desarrollo_siguiente_no_relaciones: {
-    pregunta: "Mantener relaciones contractuales con entidades directamente fiscalizadas por el organismo en que trabajaste art.49 inc. d",
+    pregunta: "Mantener relaciones contractuales con entidades directamente fiscalizadas por el organismo en que trabajaste",
     tipo: "multiple_choice",
     opciones: [
       {
@@ -1617,7 +1605,7 @@ const flujo = {
       },
       {
         valor: "ftitular_ente_regulador",
-        texto: "Seré titular o integrante de alguno de los órganos de Gobierno del Ente Regulador de Servicios Públicos (art. 28)",
+        texto: "Seré titular o integrante de alguno de los órganos de Gobierno del Ente Regulador de Servicios Públicos",
         siguiente: "respuesta_titular_ente_regulador"
       },
       {
@@ -1650,7 +1638,7 @@ const flujo = {
       {
         valor: "fotra_actividad_privada",
         texto: "Privada",
-        siguiente: "respuesta_otra_privada"
+        siguiente: "siguiente_privada_empresa"
       }
     ]
   },
@@ -1690,13 +1678,13 @@ const flujo = {
     opciones: [
       {
         valor: "futura_futura_construir",
-        texto: "Voy a construir una sociedad o a adquirir participación en una existente (art. 27 inc. d)",
+        texto: "Voy a construir una sociedad o a adquirir participación en una existente",
         siguiente: "siguiente_futura_construir"
       },
       {
         valor: "futura_futura_actividad_privada",
         texto: "Otra actividad privada",
-        siguiente: "respuesta_otra_privada"
+        siguiente: "siguiente_privada_empresa"
       }
     ]
   },
@@ -1713,12 +1701,7 @@ const flujo = {
       {
         valor: "futuro_agente_publico_previsto_desarrollar",
         texto: "Tengo previsto desarrollar otra actividad",
-        siguiente: "siguientex2_agente_publico_desarrollo_actividad_privada"
-      },
-      {
-        valor: "futuro_agente_publico_titular",
-        texto: "Seré titular o integrante de alguno de los órganos de gobierno del Ente Regulador de Servicios Públicos (art. 28)",
-        siguiente: "final_agente_publico_titular"
+        siguiente: "siguiente_agente_publico_desarrollo_actividad_privada_institucion"
       },
       {
         valor: "futuro_agente_publico_desarrolle_actividad",
@@ -1745,7 +1728,7 @@ const flujo = {
       {
         valor: "futuro_siguiente_agente_publico_desarrollo_actividad_privada",
         texto: "Privada",
-        siguiente: "siguientex2_agente_publico_desarrollo_actividad_privada"
+        siguiente: "siguiente_agente_publico_desarrollo_actividad_privada_institucion"
       }
     ]
   },
