@@ -85,7 +85,7 @@ const flujo = {
       {
         valor: "otra_actividad_publica",
         texto: "Pública",
-        siguiente: "respuesta_otra_publica"
+        siguiente: "fotra_actividad_publica_respuesta_rama"
       },
       {
         valor: "otra_actividad_privada",
@@ -1633,7 +1633,7 @@ const flujo = {
       {
         valor: "fotra_actividad_publica",
         texto: "Pública",
-        siguiente: "futura_respuesta_otra_publica"
+        siguiente: "fotra_actividad_publica_respuesta_rama"
       },
       {
         valor: "fotra_actividad_privada",
@@ -1641,6 +1641,35 @@ const flujo = {
         siguiente: "siguiente_privada_empresa"
       }
     ]
+  },
+
+  fotra_actividad_publica_respuesta_rama: {
+    pregunta: "",
+    tipo: "multiple_choice",
+    opciones: [
+      {
+        valor: "fotra_actividad_publica_respuesta_rama_1",
+        texto: "Es un empleo o función pública a nivel nacional, provincial, municipal o de la Ciudad",
+        siguiente: "final_fotra_actividad_publica_respuesta_rama_1"
+      },
+      {
+        valor: "fotra_actividad_publica_respuesta_rama_2",
+        texto: "Ejerzo la docencia",
+        siguiente: "final_fotra_actividad_publica_respuesta_rama_2"
+      }
+    ]
+  },
+
+  final_fotra_actividad_publica_respuesta_rama_1: {
+    pregunta: "En principio no hay incompatibilidad para GCABA. Sin embargo, tené en cuenta que tu otro cargo podría tener un régimen que sí lo establezca.",
+    tipo: "informativo",
+    siguiente: "finalizar"
+  },
+
+  final_fotra_actividad_publica_respuesta_rama_2: {
+    pregunta: "En principio, la actividad docente que desarrollas simultáneamente no configura una incompatibilidad, de todos modos, se sugiere que consultes tu situación con la OFIP.",
+    tipo: "informativo",
+    siguiente: "finalizar"
   },
 
   futura_respuesta_otra_publica: {
