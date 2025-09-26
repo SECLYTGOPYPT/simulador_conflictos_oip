@@ -201,3 +201,28 @@ header p {
 .titulo p {
   margin: 5px 0 0 0;
 }
+
+.alerta-verde {
+  background-color: #d4edda;
+  border-left: 4px solid #28a745;
+  padding: 16px;
+  border-radius: 6px;
+  margin: 16px 0;
+  color: #155724;
+}
+.alerta-amarillo {
+  background-color: #fff3cd;
+  border-left: 4px solid #ffc107;
+  padding: 16px;
+  border-radius: 6px;
+  margin: 16px 0;
+  color: #856404;
+}
+.alerta-rojo {
+  background-color: #f8d7da;
+  border-left: 4px solid #dc3545;
+  padding: 16px;
+  border-radius: 6px;
+  margin: 16px 0;
+  color: #721c24;
+}

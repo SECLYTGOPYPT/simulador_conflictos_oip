@@ -7,17 +7,17 @@ const flujo = {
     opciones: [
       {
         valor: "soy_funcionario",
-        texto: "Soy funcionario",
+        texto: "Soy funcionario/a",
         siguiente: "jerarquia_actual"
       },
       {
         valor: "fui_funcionario",
-        texto: "Fui funcionario",
+        texto: "Fui funcionario/a",
         siguiente: "fui_funcionario"
       },
       {
         valor: "voy_a_ser_designado",
-        texto: "Voy a ser designado en un nuevo cargo público",
+        texto: "Voy a ser designado/a en un nuevo cargo público",
         siguiente: "jerarquia_futura"
       }
     ]
@@ -30,7 +30,7 @@ const flujo = {
     opciones: [
       {
         valor: "alto_nivel",
-        texto: "Funcionario Público con rango equivalente o superior a Director/a General del Poder Ejecutivo de la Ciudad, o máxima autoridad de ente descentralizado o empresa de la Ciudad",
+        texto: "Funcionario/a Público/a con rango equivalente o superior a Director/a General del Poder Ejecutivo de la Ciudad, o máxima autoridad de ente descentralizado o empresa de la Ciudad",
         siguiente: "actividad_alto_cargo"
       },
       {
@@ -67,7 +67,7 @@ const flujo = {
       },
       {
         valor: "socio_empresa",
-        texto: "Soy o voy a ser socio de una empresa",
+        texto: "Soy o voy a ser socio/a de una empresa",
         siguiente: "respuesta_socio_empresa"
       },
       {
@@ -148,7 +148,7 @@ const flujo = {
     opciones: [
       {
         valor:"privada_individual_socio",
-        texto: "Soy socio, asociado, directivo, presto servicios a instituciones no estatales dedicadas a la defensa o representación de intereses económicos sectoriales",
+        texto: "Soy socio/a, asociado/a, directivo/a, presto servicios a instituciones no estatales dedicadas a la defensa o representación de intereses económicos sectoriales",
         siguiente: "siguiente_privada_socio"
       },
       {
@@ -220,25 +220,25 @@ const flujo = {
   },
 
   final_competencia_art26: {
-    pregunta: "Estarías realizando una actividad privada sobre la cual se configura una incompatiblidad. Te recomendamos consultar tu situación en la OFIP",
+    pregunta: "Estarías realizando una actividad privada sobre la cual se configura una incompatiblidad. Te recomendamos consultar tu situación en la OFIP.",
     tipo: "informativo",
     siguiente: "finalizar"
   },
 
   final_organismo_art26: {
-    pregunta: "Estarías realizando una actividad privada sobre la cual se configura una incompatiblidad. Te recomendamos consultar tu situación en la OFIP",
+    pregunta: "Estarías realizando una actividad privada sobre la cual se configura una incompatiblidad. Te recomendamos consultar tu situación en la OFIP.",
     tipo: "informativo",
     siguiente: "finalizar"
   },
 
   final_influencia_art27: {
-    pregunta: "Estarías realizando una actividad privada sobre la cual se configura una incompatiblidad. Te recomendamos consultar tu situación en la OFIP",
+    pregunta: "Estarías realizando una actividad privada sobre la cual se configura una incompatiblidad. Te recomendamos consultar tu situación en la OFIP.",
     tipo: "informativo",
     siguiente: "finalizar"
   },
 
   final_servicios_ninguna: {
-    pregunta: "En esa actividad ¿Tenes vinculaciones con organismos o empresas de la ciudad?",
+    pregunta: "En esa actividad ¿Tendrás vinculaciones con organismos o empresas de la ciudad?",
     tipo: "multiple_choice",
     opciones: [
       {
@@ -305,7 +305,7 @@ const flujo = {
   },
 
   siguiente_privada_negocio: {
-    pregunta: "En esa actividad ¿Tenés vinculaciones con organismos o empresas de la ciudad?",
+    pregunta: "En esa actividad ¿Tendrás vinculaciones con organismos o empresas de la ciudad?",
     tipo: "multiple_choice",
     opciones: [
       {
@@ -362,7 +362,7 @@ const flujo = {
     opciones: [
       {
         valor: "futura_construir",
-        texto: "Voy a construir una sociedad o a adquirir participación en una existente",
+        texto: "Voy a constituir una sociedad o a adquirir participación en una existente",
         siguiente: "siguiente_futura_construir"
       },
       {
@@ -580,7 +580,7 @@ const flujo = {
     opciones: [
       {
         valor: "asumir_privada_socio",
-        texto: "Aún soy socio",
+        texto: "Aún soy socio/a",
         siguiente: "final_asumir_privada_socio"
       },
       {
@@ -597,7 +597,7 @@ const flujo = {
   },
 
   final_asumir_privada_socio: {
-    pregunta: "Si sos socio e interveniste desde el cargo público, tu actuación se realizó en conflicto de interés. Consultá a la OFIP para evaluar la situación.",
+    pregunta: "Si sos socio/a e interveniste desde el cargo público, tu actuación se realizó en conflicto de interés. Consultá a la OFIP para evaluar la situación.",
     tipo: "informativo",
     siguiente: "finalizar"
   },
@@ -742,6 +742,28 @@ const flujo = {
     ]
   },
 
+  respuesta_acciones_bonosx2: {
+    pregunta: "Las acciones, bonos o cualquier otro título valor que posees fueron emitidos por",
+    tipo: "multiple_choice",
+    opciones: [
+      {
+        valor: "bonos_anonimasx2",
+        texto: "Sociedad/es anónima/s que hace/n oferta pública o cotización de sus acciones y que, a la vez, su actividad se encuentra sujeta al ámbito la competencia de mi futuro cargo o su cotización podrá verse influenciada por los actos que emitiré.",
+        siguiente: "final_bonos_anonimas"
+      },
+      {
+        valor: "bonos_comercialesx2",
+        texto: "Sociedad/es comerciales que no haga/n oferta pública o cotización de sus acciones y que, a la vez, su actividad se encuentra sujeta al ámbito de la competencia de mi futuro cargo y en una cantidad suficiente para formar la voluntad social o para controlarla por cualquier otro medio.",
+        siguiente: "final_bonos_comerciales"
+      },
+      {
+        valor: "bonos_ningunax2",
+        texto: "Ninguna de las anteriores",
+        siguiente: "final_bonos_ninguna"
+      }
+    ]
+  },
+
   final_bonos_anonimas: {
     pregunta: "Usted se encuentra en una situación de conflicto de interés actual. Comuníquese con la OFIP para proceder acorde a la normativa vigente.",
     tipo: "informativo",
@@ -781,7 +803,7 @@ const flujo = {
       },
       {
         valor: "agente_publico_soy_empresa",
-        texto: "Soy o voy a ser socio de una empresa",
+        texto: "Soy o voy a ser socio/a de una empresa",
         siguiente: "siguiente_agente_publico_soy_empresa"
       }
     ]
@@ -809,7 +831,7 @@ const flujo = {
       {
         valor: "siguiente_agente_publico_soy_empresa_abogado",
         texto: "Ejerce la abogacía judicial o extrajudicialmente en causas contra la Ciudad Autónoma de Buenos Aires",
-        siguiente: "final_siguiente_agente_publico_soy_empresa_abogado"
+        siguiente: "final_siguiente_agente_publico_soy_empresa_abogado_nuevo"
       },
       {
         valor: "siguiente_agente_publico_soy_empresa_ninguna",
@@ -817,6 +839,12 @@ const flujo = {
         siguiente: "final_siguiente_agente_publico_soy_empresa_ninguna"
       }
     ]
+  },
+
+  final_siguiente_agente_publico_soy_empresa_abogado_nuevo: {
+    pregunta: "La actividad sólo es permitida en causa propia o por hijos menores no emancipados o con capacidad restingida. Toda actividad profesional judicial o extrajudicial contra la Ciudad Autónoma de Buenos Aires, incluyendo actuar como perito, es incompatible.",
+    tipo: "informativo",
+    siguiente: "finalizar"
   },
 
   final_siguiente_agente_publico_soy_empresa_servicios: {
@@ -873,7 +901,7 @@ const flujo = {
   },
 
   siguientex2_agente_publico_desarrolle_actividad_privada: {
-    pregunta: "En el ejercicio del cargo, tomaste intervención en asuntos vinculados a las sociedades de las que fuiste socio/a o de las que formaste parte del órgano de administración o de su controlante?",
+    pregunta: "¿En el ejercicio del cargo tendrás intervención en asuntos vinculados a las sociedades de las que fuiste socio/a o de las que formaste parte del órgano de administración o de su controlante?",
     tipo: "multiple_choice",
     opciones: [
       {
@@ -901,7 +929,7 @@ const flujo = {
     opciones: [
       {
         valor: "siguientex3_agente_publico_desarrolle_actividad_privada_si_socio",
-        texto: "Aún soy socio",
+        texto: "Aún soy socio/a",
         siguiente: "final_siguientex3_agente_publico_desarrolle_actividad_privada_si_socio"
       },
       {
@@ -918,7 +946,7 @@ const flujo = {
   },
 
   final_siguientex3_agente_publico_desarrolle_actividad_privada_si_socio: {
-    pregunta: "Si sos socio e interveniste desde el cargo público, tu actuación se realizó en conflicto de interés. Consultá a la OFIP para evaluar la situación.",
+    pregunta: "Si sos socio/a e interveniste desde el cargo público, tu actuación se realizó en conflicto de interés. Consultá a la OFIP para evaluar la situación.",
     tipo: "informativo",
     siguiente: "finalizar"
   },
@@ -970,9 +998,15 @@ const flujo = {
       {
         valor: "siguiente_agente_publico_previsto_desarrollar_publica_no",
         texto: "No",
-        siguiente: "final_siguiente_agente_publico_previsto_desarrollar_publica_no"
+        siguiente: "final_siguiente_agente_publico_previsto_desarrollar_publica_no_nuevo"
       }
     ]
+  },
+
+  final_siguiente_agente_publico_previsto_desarrollar_publica_no_nuevo: {
+    pregunta: "Está vedado el ejercicio de cualquier empleo o función pública a nivel nacional, provincial, municipal o de la Ciudad, salvo que el Poder Ejecutivo, fundadamente, lo autorice. Con la única excepción de la docencia.",
+    tipo: "informativo",
+    siguiente: "finalizar"
   },
 
   final_siguiente_agente_publico_previsto_desarrollar_publica_no: {
@@ -993,9 +1027,15 @@ const flujo = {
       {
         valor: "siguientex2_agente_publico_previsto_desarrollar_publica_si_no",
         texto: "No",
-        siguiente: "final_siguientex2_agente_publico_previsto_desarrollar_publica_si_no"
+        siguiente: "final_siguientex2_agente_publico_previsto_desarrollar_publica_si_no_nuevo"
       }
     ]
+  },
+
+  final_siguientex2_agente_publico_previsto_desarrollar_publica_si_no_nuevo: {
+    pregunta: "No hay limitación/incompatibilidad",
+    tipo: "informativo",
+    siguiente: "finalizar"
   },
   
   final_siguientex2_agente_publico_previsto_desarrollar_publica_si_no: {
@@ -1011,7 +1051,7 @@ const flujo = {
       {
         valor: "siguientex3_agente_publico_previsto_desarrollar_publica_six3",
         texto: "Si",
-        siguiente: "final_siguientex3_agente_publico_previsto_desarrollar_publica_six3"
+        siguiente: "final_siguientex3_agente_publico_previsto_desarrollar_publica_six3_nuevo"
       },
       {
         valor: "siguientex3_agente_publico_previsto_desarrollar_publica_si_nox2",
@@ -1019,6 +1059,12 @@ const flujo = {
         siguiente: "final_siguientex3_agente_publico_previsto_desarrollar_publica_si_nox2"
       }
     ]
+  },
+
+  final_siguientex3_agente_publico_previsto_desarrollar_publica_six3_nuevo: {
+    pregunta: "No hay limitación/incompatibilidad",
+    tipo: "informativo",
+    siguiente: "finalizar"
   },
 
   final_siguientex3_agente_publico_previsto_desarrollar_publica_six3: {
@@ -1039,9 +1085,15 @@ const flujo = {
       {
         valor: "final_siguientex3_agente_publico_previsto_desarrollar_publica_si_nox3",
         texto: "No",
-        siguiente: "final_siguientex3_agente_publico_previsto_desarrollar_publica_si_nox2_six2"
+        siguiente: "final_siguientex3_agente_publico_previsto_desarrollar_publica_si_nox2_six2_nuevo"
       }
     ]
+  },
+
+  final_siguientex3_agente_publico_previsto_desarrollar_publica_si_nox2_six2_nuevo: {
+    pregunta: "No hay limitación/incompatibilidad",
+    tipo: "informativo",
+    siguiente: "finalizar"
   },
 
   final_siguientex3_agente_publico_previsto_desarrollar_publica_si_nox2_six2: {
@@ -1091,13 +1143,13 @@ const flujo = {
   },
 
   final_agente_publico_desarrollo_actividad_publica_municipal: {
-    pregunta: "Está vedado el ejercicio de cualquier empleo o función pública a nivel nacional, provincial, municipal o de la Ciudad, salvo que el Poder Ejecutivo, fundadamente, lo autorice. *Ley 471",
+    pregunta: "Está vedado el ejercicio de cualquier empleo o función pública a nivel nacional, provincial, municipal o de la Ciudad, salvo que el Poder Ejecutivo, fundadamente, lo autorice.",
     tipo: "informativo",
     siguiente: "finalizar"
   },
 
   final_agente_publico_desarrollo_actividad_publica_docente: {
-    pregunta: "En principio, la actividad docente que desarrollas simultaneamente no configura un conflicto de intereses, de todos modos, se sugiere que consultes tu situación con la OFIP.",
+    pregunta: "En principio, la actividad docente que desarrollas simultaneamente no configura una incompatibilidad, siempre que no exista superposición horaria, de todos modos, se sugiere que consultes tu situación con la OFIP.",
     tipo: "informativo",
     siguiente: "finalizar"
   },
@@ -1109,12 +1161,12 @@ const flujo = {
       {
         valor: "siguiente_agente_publico_desarrollo_actividad_privada_institucion_servicios",
         texto: "Presto servicios, gestiono, dirijo, administro, represento, patrocino, mantengo relaciones contractuales con individuos/empresas/instituciones.",
-        siguiente: "siguientex2_agente_publico_desarrollo_actividad_privada_institucion_servicios"
+        siguiente: "siguientex2_agente_publico_desarrollo_actividad_privada_institucion_servicios_nuevo"
       },
       {
         valor: "siguiente_agente_publico_desarrollo_actividad_privada_institucion_bienes",
         texto: "Proveo bienes o servicios (en forma personal o por terceros) al organismo en el que ejerzo funciones o a entidades bajo mi jurisdicción.",
-        siguiente: "final_siguiente_agente_publico_desarrollo_actividad_privada_institucion_bienes"
+        siguiente: "final_siguiente_agente_publico_desarrollo_actividad_privada_institucion_bienes_nuevo"
       },
       {
         valor: "siguiente_agente_publico_desarrollo_actividad_privada_institucion_abogacia",
@@ -1124,13 +1176,65 @@ const flujo = {
       {
         valor: "siguiente_agente_publico_desarrollo_actividad_privada_institucion_ninguna",
         texto: "Ninguna de las anteriores",
-        siguiente: "final_otra_publica"
+        siguiente: "siguiente_agente_publico_desarrollo_actividad_privada_institucion_ninguna_nuevo"
       }
     ]
   },
 
-  final_siguiente_agente_publico_desarrollo_actividad_privada_institucion_bienes: {
+  final_siguiente_agente_publico_desarrollo_actividad_privada_institucion_bienes_nuevo: {
     pregunta: "Estarías realizando una actividad privada sobre la cual se configura una incompatiblidad. Te recomendamos consultar tu situación en la OFIP.",
+    tipo: "informativo",
+    siguiente: "finalizar"
+  },
+
+  siguiente_agente_publico_desarrollo_actividad_privada_institucion_ninguna_nuevo: {
+    pregunta: "En principio, la actividad es compatible con el ejercicio de la función pública. Igualmente, se sugiere que consultes con la OFIP.",
+    tipo: "informativo",
+    siguiente: "finalizar"
+  },
+
+  siguientex2_agente_publico_desarrollo_actividad_privada_institucion_servicios_nuevo: {
+    pregunta: "Desde el cargo",
+    tipo: "multiple_choice",
+    opciones: [
+      {
+        valor: "siguientex2_agente_publico_desarrollo_actividad_privada_institucion_servicios_nuevo_presto",
+        texto: "Poseo alguna competencia, decisoria o no, en relación a ellos.",
+        siguiente: "final_siguientex2_agente_publico_desarrollo_actividad_privada_institucion_servicios_nuevo_presto"
+      },
+      {
+        valor: "siguientex2_agente_publico_desarrollo_actividad_privada_institucion_servicios_organismo_nuevo",
+        texto: "El organismo donde presto funciones lo fizcaliza directamente.",
+        siguiente: "final_siguientex2_agente_publico_desarrollo_actividad_privada_institucion_servicios_organismo_nuevo"
+      },
+      {
+        valor: "siguientex2_agente_publico_desarrollo_actividad_privada_institucion_servicios_ninguna_nuevo",
+        texto: "Ninguna de las anteriores",
+        siguiente: "final_siguientex2_agente_publico_desarrollo_actividad_privada_institucion_servicios_ninguna_nuevo"
+      }
+    ]
+  },
+
+  final_siguientex2_agente_publico_desarrollo_actividad_privada_institucion_servicios_nuevo_presto: {
+    pregunta: "Estarías realizando una actividad privada sobre la cual se configura una incompatiblidad. Te recomendamos consultar tu situación en la OFIP.",
+    tipo: "informativo",
+    siguiente: "finalizar"
+  },
+
+  final_siguientex2_agente_publico_desarrollo_actividad_privada_institucion_servicios_organismo_nuevo: {
+    pregunta: "Estarías realizando una actividad privada sobre la cual se configura una incompatiblidad. Te recomendamos consultar tu situación en la OFIP.",
+    tipo: "informativo",
+    siguiente: "finalizar"
+  },
+
+  final_siguientex2_agente_publico_desarrollo_actividad_privada_institucion_servicios_ninguna_nuevo: {
+    pregunta: "En principio, la actividad es compatible con el ejercicio de la función pública. Igualmente, se sugiere que consultes con la OFIP.",
+    tipo: "informativo",
+    siguiente: "finalizar"
+  },
+
+  final_siguiente_agente_publico_desarrollo_actividad_privada_institucion_bienes: {
+    pregunta: "Podrías estar realizando una actividad privada sobre la cual es factible que se configure una incompatibilidad. Te recomendamos consultar tu situación en la OFIP.",
     tipo: "informativo",
     siguiente: "finalizar"
   },
@@ -1205,7 +1309,7 @@ const flujo = {
       },
       {
         valor: "si_designado",
-        texto:"Va a ser designado en un nuevo cargo público",
+        texto:"Va a ser designado/a en un nuevo cargo público",
         siguiente:"designado_siguiente"
       }
     ]
@@ -1338,9 +1442,15 @@ const flujo = {
       {
         valor: "siguientex2_fui_desarrollo_siguiente_si_no_si",
         texto:"Si",
-        siguiente:"final_siguientex2_fui_desarrollo_siguiente_si_no_si"
+        siguiente:"final_siguientex2_fui_desarrollo_siguiente_si_no_si_nuevo"
       }
     ]
+  },
+
+  final_siguientex2_fui_desarrollo_siguiente_si_no_si_nuevo: {
+    pregunta: "CONSULTA A LA OFIP. La ley de Integridad Pública prohíbe, hasta un (1) año después de su egreso del cargo ocupado en ejercicio de la función pública, tener cargos directivos o gerenciales en sociedades con las que se hubieran vinculado o que hubieran estado sujetas a su control, fiscalización o regulación.",
+    tipo: "informativo",
+    siguiente: "finalizar"
   },
 
   final_siguientex2_fui_desarrollo_siguiente_si_no_si: {
@@ -1573,12 +1683,12 @@ const flujo = {
   // === RAMA 3: SERÉ FUNCIONARIO ===
 
   jerarquia_futura: {
-    pregunta: "¿Cuál es tu jerarquía actual?",
+    pregunta: "¿Cuál será jerarquía actual?",
     tipo: "multiple_choice",
     opciones: [
       {
         valor: "f_alto_nivel",
-        texto: "Equivalente o Superior a Director General del Poder Ejecutivo de la Ciudad, o máxima autoridad de Ente Descentralizado o Sociedad de la Ciudad",
+        texto: "Funcionario/a Público/a con rango equivalente o superior a Director/a General del Poder Ejecutivo de la Ciudad, o máxima autoridad de ente descentralizado o empresa de la Ciudad",
         siguiente: "futuro_actividad_alto_cargo"
       },
       {
@@ -1615,13 +1725,13 @@ const flujo = {
       },
       {
         valor: "fsocio_empresa",
-        texto: "Soy o voy a ser socio de una empresa",
+        texto: "Soy o tengo previsto ser socio/a de una empresa",
         siguiente: "respuesta_socio_empresa"
       },
       {
         valor: "facciones_bonos",
         texto: "Soy titular de acciones, bonos o cualquier otro título valor emitido por sociedad/es",
-        siguiente: "respuesta_acciones_bonos"
+        siguiente: "respuesta_acciones_bonosx2"
       }
     ]
   },
@@ -1707,15 +1817,138 @@ const flujo = {
     opciones: [
       {
         valor: "futura_futura_construir",
-        texto: "Voy a construir una sociedad o a adquirir participación en una existente",
+        texto: "Voy a constituir una sociedad o a adquirir participación en una existente",
         siguiente: "siguiente_futura_construir"
       },
       {
         valor: "futura_futura_actividad_privada",
         texto: "Otra actividad privada",
-        siguiente: "siguiente_privada_empresa"
+        siguiente: "siguiente_futura_futura_actividad_privada"
       }
     ]
+  },
+
+  siguiente_futura_futura_actividad_privada: {
+    pregunta: "En la cual",
+    tipo: "multiple_choice",
+    opciones: [
+      {
+        valor:"privada_individual_socio",
+        texto: "Soy socio/a, asociado/a, directivo/a, presto servicios a instituciones no estatales dedicadas a la defensa o representación de intereses económicos sectoriales",
+        siguiente: "siguiente_privada_socio"
+      },
+      {
+        valor:"privada_individual_servicios_nuevo",
+        texto: "Presto servicios, gestiono, dirijo, administro, represento, patrocino, ejerzo profesión liberal, mantengo relaciones contractuales con individuos/empresas/instituciones",
+        siguiente: "siguiente_privada_individual_servicios_nuevo"
+      },
+      {
+        valor:"privada_individual_bienes_nuevo",
+        texto: "Proveo bienes o servicios (en forma personal o por terceros) al organismo en el que ejerzo funciones o a entidades bajo mi jurisdicción",
+        siguiente: "final_privada_individual_bienes_nuevo"
+      },
+      {
+        valor:"privada_individual_abogacia",
+        texto: "Ejerzo la abogacía judicial o extrajudicialmente en causas contra la Ciudad Autónoma de Buenos Aires",
+        siguiente: "final_privada_abogacia"
+      },
+      {
+        valor:"privada_individual_ninguna",
+        texto: "Ninguna de las anteriores",
+        siguiente: "final_privada_ninguna"
+      }
+    ]
+  },
+
+  siguiente_privada_individual_servicios_nuevo: {
+    pregunta: "Desde el cargo",
+    tipo: "multiple_choice",
+    opciones: [
+      {
+        valor:"poseo_siguiente_privada_individual_servicios_nuevo",
+        texto: "Poseo alguna competencia, decisoria o no, en relación a ellos",
+        siguiente: "final_siguiente_privada_individual_servicios_nuevo"
+      },
+      {
+        valor:"organismo_siguiente_privada_individual_servicios_nuevo",
+        texto: "El organismo donde presto funciones lo fizcaliza directamente",
+        siguiente: "final_siguiente_privada_individual_servicios_nuevo"
+      },
+      {
+        valor:"influir_siguiente_privada_individual_servicios_nuevo",
+        texto: "Puedo influir en la decisión de la autoridad de mi jurisdicción o alterar el principio de igualdad ante la ley",
+        siguiente: "final_siguiente_privada_individual_servicios_nuevo"
+      },
+      {
+        valor:"ninguna_siguiente_privada_individual_servicios_nuevo",
+        texto: "Ninguna de las anteriores",
+        siguiente: "siguiente_ninguna_siguiente_privada_individual_servicios_nuevo"
+      }
+    ]
+  },
+
+  siguiente_ninguna_siguiente_privada_individual_servicios_nuevo: {
+    pregunta: "En esa actividad ¿Tenés vinculaciones con organismos o empresas de la Ciudad?",
+    tipo: "multiple_choice",
+    opciones: [
+      {
+        valor:"si_siguiente_ninguna_siguiente_privada_individual_servicios_nuevo",
+        texto: "Si",
+        siguiente: "siguiente_si_siguiente_ninguna_siguiente_privada_individual_servicios_nuevo"
+      },
+      {
+        valor:"no_siguiente_ninguna_siguiente_privada_individual_servicios_nuevo",
+        texto: "No",
+        siguiente: "final_no_siguiente_ninguna_siguiente_privada_individual_servicios_nuevo"
+      }
+    ]
+  },
+
+  siguiente_si_siguiente_ninguna_siguiente_privada_individual_servicios_nuevo: {
+    pregunta: "¿Es una actividad docente?",
+    tipo: "multiple_choice",
+    opciones: [
+      {
+        valor:"si_siguiente_si_siguiente_ninguna_siguiente_privada_individual_servicios_nuevo",
+        texto: "Si",
+        siguiente: "final_si_siguiente_si_siguiente_ninguna_siguiente_privada_individual_servicios_nuevo"
+      },
+      {
+        valor:"no_siguiente_si_siguiente_ninguna_siguiente_privada_individual_servicios_nuevo",
+        texto: "No",
+        siguiente: "final_no_siguiente_si_siguiente_ninguna_siguiente_privada_individual_servicios_nuevo"
+      }
+    ]
+  },
+
+  final_si_siguiente_si_siguiente_ninguna_siguiente_privada_individual_servicios_nuevo: {
+    pregunta: "En principio, la actividad docente es compatible con el ejercicio de la función pública. Igualmente, se sugiere que consultes con la OFIP.",
+    tipo: "informativo",
+    siguiente: "finalizar"
+  },
+
+  final_no_siguiente_si_siguiente_ninguna_siguiente_privada_individual_servicios_nuevo: {
+    pregunta: "Podrías estar realizando una actividad privada sobre la cual es factible que se configure una incompatibilidad. Te recomendamos consultar tu situación en la OFIP.",
+    tipo: "informativo",
+    siguiente: "finalizar"
+  },
+
+  final_no_siguiente_ninguna_siguiente_privada_individual_servicios_nuevo: {
+    pregunta: "En principio, la actividad es compatible con el ejercicio de la función pública. Igualmente, se sugiere que consultes con la OFIP.",
+    tipo: "informativo",
+    siguiente: "finalizar"
+  },
+
+  final_siguiente_privada_individual_servicios_nuevo: {
+    pregunta: "Podrías estar realizando una actividad privada sobre la cual es factible que se configure una incompatibilidad. Te recomendamos consultar tu situación en la OFIP.",
+    tipo: "informativo",
+    siguiente: "finalizar"
+  },
+
+  final_privada_individual_bienes_nuevo: {
+    pregunta: "Podrías estar realizando una actividad privada sobre la cual es factible que se configure una incompatibilidad. Te recomendamos consultar tu situación en la OFIP.",
+    tipo: "informativo",
+    siguiente: "finalizar"
   },
 
   futuro_actividad_agente_publico: {
@@ -1730,7 +1963,7 @@ const flujo = {
       {
         valor: "futuro_agente_publico_previsto_desarrollar",
         texto: "Tengo previsto desarrollar otra actividad",
-        siguiente: "siguiente_agente_publico_desarrollo_actividad_privada_institucion"
+        siguiente: "siguiente_nueva_futuro_agente_publico_previsto_desarrollar"
       },
       {
         valor: "futuro_agente_publico_desarrolle_actividad",
@@ -1739,10 +1972,153 @@ const flujo = {
       },
       {
         valor: "futuro_agente_publico_soy_empresa",
-        texto: "Soy o voy a ser socio de una empresa",
+        texto: "Soy o voy a ser socio/a de una empresa",
         siguiente: "siguiente_agente_publico_soy_empresa"
       }
     ]
+  },
+
+  siguiente_nueva_futuro_agente_publico_previsto_desarrollar: {
+    pregunta: "En la cual",
+    tipo: "multiple_choice",
+    opciones: [
+      {
+        valor: "presto_siguiente_nueva_futuro_agente_publico_previsto_desarrollar",
+        texto: "Presto servicios, gestiono, dirijo, administro, represento, patrocino, mantengo relaciones contractuales con individuos/empresas/instituciones.",
+        siguiente: "nuevo_siguiente_presto_siguiente_nueva_futuro_agente_publico_previsto_desarrollar"
+      },
+      {
+        valor: "proveo_siguiente_nueva_futuro_agente_publico_previsto_desarrollar",
+        texto: "Proveo bienes o servicios (en forma personal o por terceros) al organismo en el que ejerzo funciones o a entidades bajo mi jurisdicción.",
+        siguiente: "nuevo_final_proveo_siguiente_nueva_futuro_agente_publico_previsto_desarrollar"
+      },
+      {
+        valor: "ejerzo_siguiente_nueva_futuro_agente_publico_previsto_desarrollar",
+        texto: "Ejerzo la abogacía judicial o extrajudicialmente en causas contra la Ciudad Autónoma de Buenos Aires.",
+        siguiente: "nuevo_final_ejerzo_siguiente_nueva_futuro_agente_publico_previsto_desarrollar"
+      },
+      {
+        valor: "ninguna_siguiente_nueva_futuro_agente_publico_previsto_desarrollar",
+        texto: "Ninguna de las anteriores.",
+        siguiente: "nuevo_final_ninguna_siguiente_nueva_futuro_agente_publico_previsto_desarrollar"
+      }
+    ]
+  },
+
+  nuevo_siguiente_presto_siguiente_nueva_futuro_agente_publico_previsto_desarrollar: {
+    pregunta: "Desde el cargo",
+    tipo: "multiple_choice",
+    opciones: [
+      {
+        valor: "nuevo_poseo_nuevo_siguiente_presto_siguiente_nueva_futuro_agente_publico_previsto_desarrollar",
+        texto: "Poseo alguna competencia, decisoria o no, en relación a ellos.",
+        siguiente: "final_nuevo_poseo_nuevo_siguiente_presto_siguiente_nueva_futuro_agente_publico_previsto_desarrollar"
+      },
+      {
+        valor: "nuevo_organismo_nuevo_siguiente_presto_siguiente_nueva_futuro_agente_publico_previsto_desarrollar",
+        texto: "El organismo donde presto funciones lo fizcaliza directamente.",
+        siguiente: "final_nuevo_organismo_nuevo_siguiente_presto_siguiente_nueva_futuro_agente_publico_previsto_desarrollar"
+      },
+      {
+        valor: "nuevo_ninguno_nuevo_siguiente_presto_siguiente_nueva_futuro_agente_publico_previsto_desarrollar",
+        texto: "Ninguna de las anteriores.",
+        siguiente: "final_nuevo_ninguno_nuevo_siguiente_presto_siguiente_nueva_futuro_agente_publico_previsto_desarrollar"
+      }
+    ]
+  },
+
+  final_nuevo_poseo_nuevo_siguiente_presto_siguiente_nueva_futuro_agente_publico_previsto_desarrollar: {
+    pregunta: "Estarías realizando una actividad privada sobre la cual se configura una incompatiblidad. Te recomendamos consultar tu situación en la OFIP.",
+    tipo: "informativo",
+    siguiente: "finalizar"
+  },
+
+  final_nuevo_organismo_nuevo_siguiente_presto_siguiente_nueva_futuro_agente_publico_previsto_desarrollar: {
+    pregunta: "Estarías realizando una actividad privada sobre la cual se configura una incompatiblidad. Te recomendamos consultar tu situación en la OFIP.",
+    tipo: "informativo",
+    siguiente: "finalizar"
+  },
+
+  final_nuevo_ninguno_nuevo_siguiente_presto_siguiente_nueva_futuro_agente_publico_previsto_desarrollar: {
+    pregunta: "En principio, la actividad es compatible con el ejercicio de la función pública. Igualmente, se sugiere que consultes con la OFIP.",
+    tipo: "informativo",
+    siguiente: "finalizar"
+  },
+
+  nuevo_final_proveo_siguiente_nueva_futuro_agente_publico_previsto_desarrollar: {
+    pregunta: "Estarías realizando una actividad privada sobre la cual se configura una incompatiblidad. Te recomendamos consultar tu situación en la OFIP.",
+    tipo: "informativo",
+    siguiente: "finalizar"
+  },
+
+  nuevo_final_ejerzo_siguiente_nueva_futuro_agente_publico_previsto_desarrollar: {
+    pregunta: "La actividad sólo es permitida en causa propia o por hijos menores no emancipados o con capacidad restingida. Toda actividad profesional judicial o extrajudicial contra la Ciudad Autónoma de Buenos Aires, incluyendo actuar como perito, es incompatible.",
+    tipo: "informativo",
+    siguiente: "finalizar"
+  },
+
+  nuevo_final_ninguna_siguiente_nueva_futuro_agente_publico_previsto_desarrollar: {
+    pregunta: "En principio, la actividad es compatible con el ejercicio de la función pública. Igualmente, se sugiere que consultes con la OFIP.",
+    tipo: "informativo",
+    siguiente: "finalizar"
+  },
+
+  nueva_presto_siguiente_nueva_futuro_agente_publico_previsto_desarrollar: {
+    pregunta: "Desde el cargo",
+    tipo: "multiple_choice",
+    opciones: [
+      {
+        valor: "poseo_nueva_presto_siguiente_nueva_futuro_agente_publico_previsto_desarrollar",
+        texto: "Poseo alguna competencia, decisoria o no, en relación a ellos.",
+        siguiente: "final_poseo_nueva_presto_siguiente_nueva_futuro_agente_publico_previsto_desarrollar"
+      },
+      {
+        valor: "proveo_nueva_presto_siguiente_nueva_futuro_agente_publico_previsto_desarrollar",
+        texto: "El organismo donde presto funciones lo fizcaliza directamente.",
+        siguiente: "final_proveo_nueva_presto_siguiente_nueva_futuro_agente_publico_previsto_desarrollar"
+      },
+      {
+        valor: "ejerzo_nueva_presto_siguiente_nueva_futuro_agente_publico_previsto_desarrollar",
+        texto: "Ninguna de las anteriores.",
+        siguiente: "final_ejerzo_nueva_presto_siguiente_nueva_futuro_agente_publico_previsto_desarrollar"
+      },
+    ]
+  },
+
+  final_poseo_nueva_presto_siguiente_nueva_futuro_agente_publico_previsto_desarrollar: {
+    pregunta: "Estarías realizando una actividad privada sobre la cual se configura una incompatiblidad. Te recomendamos consultar tu situación en la OFIP.",
+    tipo: "informativo",
+    siguiente: "finalizar"
+  },
+
+  final_proveo_nueva_presto_siguiente_nueva_futuro_agente_publico_previsto_desarrollar: {
+    pregunta: "Estarías realizando una actividad privada sobre la cual se configura una incompatiblidad. Te recomendamos consultar tu situación en la OFIP.",
+    tipo: "informativo",
+    siguiente: "finalizar"
+  },
+
+  final_ejerzo_nueva_presto_siguiente_nueva_futuro_agente_publico_previsto_desarrollar: {
+    pregunta: "En principio, la actividad es compatible con el ejercicio de la función pública. Igualmente, se sugiere que consultes con la OFIP.",
+    tipo: "informativo",
+    siguiente: "finalizar"
+  },
+
+  final_proveo_siguiente_nueva_futuro_agente_publico_previsto_desarrollar: {
+    pregunta: "Estarías realizando una actividad privada sobre la cual se configura una incompatiblidad. Te recomendamos consultar tu situación en la OFIP.",
+    tipo: "informativo",
+    siguiente: "finalizar"
+  },
+
+  final_ejerzo_siguiente_nueva_futuro_agente_publico_previsto_desarrollar: {
+    pregunta: "La actividad sólo es permitida en causa propia o por hijos menores no emancipados o con capacidad restingida. Toda actividad profesional judicial o extrajudicial contra la Ciudad Autónoma de Buenos Aires, incluyendo actuar como perito, es incompatible .",
+    tipo: "informativo",
+    siguiente: "finalizar"
+  },
+
+  final_ninguna_siguiente_nueva_futuro_agente_publico_previsto_desarrollar: {
+    pregunta: "En principio, la actividad es compatible con el ejercicio de la función pública. Igualmente, se sugiere que consultes con la OFIP.",
+    tipo: "informativo",
+    siguiente: "finalizar"
   },
 
   futuro_siguiente_agente_publico_desarrollo_actividad: {
@@ -1757,9 +2133,140 @@ const flujo = {
       {
         valor: "futuro_siguiente_agente_publico_desarrollo_actividad_privada",
         texto: "Privada",
-        siguiente: "siguiente_agente_publico_desarrollo_actividad_privada_institucion"
+        siguiente: "futuro_siguiente_agente_publico_desarrollo_actividad_privada_nueva"
       }
     ]
+  },
+
+  futuro_siguiente_agente_publico_desarrollo_actividad_privada_nueva: {
+    pregunta: "En la cual",
+    tipo: "multiple_choice",
+    opciones: [
+      {
+        valor: "siguiente_agente_publico_desarrollo_actividad_privada_institucion_servicios_nueva",
+        texto: "Presto servicios, gestiono, dirijo, administro, represento, patrocino, mantengo relaciones contractuales con individuos/empresas/instituciones.",
+        siguiente: "nuevo_siguiente_siguiente_agente_publico_desarrollo_actividad_privada_institucion_servicios_nueva"
+      },
+      {
+        valor: "siguiente_agente_publico_desarrollo_actividad_privada_institucion_bienes_nueva",
+        texto: "Proveo bienes o servicios (en forma personal o por terceros) al organismo en el que ejerzo funciones o a entidades bajo mi jurisdicción.",
+        siguiente: "nuevo_final_siguiente_agente_publico_desarrollo_actividad_privada_institucion_bienes_nueva"
+      },
+      {
+        valor: "siguiente_agente_publico_desarrollo_actividad_privada_institucion_abogacia_nueva",
+        texto: "Ejerzo la abogacía judicial o extrajudicialmente en causas contra la Ciudad Autónoma de Buenos Aires.",
+        siguiente: "nuevo_final_siguiente_agente_publico_desarrollo_actividad_privada_institucion_abogacia_nueva"
+      },
+      {
+        valor: "siguiente_agente_publico_desarrollo_actividad_privada_institucion_ninguna_nueva",
+        texto: "Ninguna de las anteriores",
+        siguiente: "nuevo_final_siguiente_agente_publico_desarrollo_actividad_privada_institucion_ninguna_nueva"
+      }
+    ]
+  },
+
+  nuevo_siguiente_siguiente_agente_publico_desarrollo_actividad_privada_institucion_servicios_nueva: {
+    pregunta: "Desde el cargo",
+    tipo: "multiple_choice",
+    opciones: [
+      {
+        valor: "poseo_nuevo_siguiente_siguiente_agente_publico_desarrollo_actividad_privada_institucion_servicios_nueva",
+        texto: "Poseo alguna competencia, decisoria o no, en relación a ellos.",
+        siguiente: "final_poseo_nuevo_siguiente_siguiente_agente_publico_desarrollo_actividad_privada_institucion_servicios_nueva"
+      },
+      {
+        valor: "organismo_nuevo_siguiente_siguiente_agente_publico_desarrollo_actividad_privada_institucion_servicios_nueva",
+        texto: "El organismo donde presto funciones lo fizcaliza directamente.",
+        siguiente: "final_organismo_nuevo_siguiente_siguiente_agente_publico_desarrollo_actividad_privada_institucion_servicios_nueva"
+      },
+      {
+        valor: "ninguna_nuevo_siguiente_siguiente_agente_publico_desarrollo_actividad_privada_institucion_servicios_nueva",
+        texto: "Ninguna de las anteriores.",
+        siguiente: "final_ninguna_nuevo_siguiente_siguiente_agente_publico_desarrollo_actividad_privada_institucion_servicios_nueva"
+      }
+    ]
+  },
+
+  final_poseo_nuevo_siguiente_siguiente_agente_publico_desarrollo_actividad_privada_institucion_servicios_nueva: {
+    pregunta: "Estarías realizando una actividad privada sobre la cual se configura una incompatiblidad. Te recomendamos consultar tu situación en la OFIP.",
+    tipo: "informativo",
+    siguiente: "finalizar"
+  },
+
+  final_organismo_nuevo_siguiente_siguiente_agente_publico_desarrollo_actividad_privada_institucion_servicios_nueva: {
+    pregunta: "Estarías realizando una actividad privada sobre la cual se configura una incompatiblidad. Te recomendamos consultar tu situación en la OFIP.",
+    tipo: "informativo",
+    siguiente: "finalizar"
+  },
+
+  final_ninguna_nuevo_siguiente_siguiente_agente_publico_desarrollo_actividad_privada_institucion_servicios_nueva: {
+    pregunta: "En principio, la actividad es compatible con el ejercicio de la función pública. Igualmente, se sugiere que consultes con la OFIP.",
+    tipo: "informativo",
+    siguiente: "finalizar"
+  },
+
+  nuevo_final_siguiente_agente_publico_desarrollo_actividad_privada_institucion_bienes_nueva: {
+    pregunta: "Estarías realizando una actividad privada sobre la cual se configura una incompatiblidad. Te recomendamos consultar tu situación en la OFIP.",
+    tipo: "informativo",
+    siguiente: "finalizar"
+  },
+
+  nuevo_final_siguiente_agente_publico_desarrollo_actividad_privada_institucion_abogacia_nueva: {
+    pregunta: "La actividad sólo es permitida en causa propia o por hijos menores no emancipados o con capacidad restingida. Toda actividad profesional judicial o extrajudicial contra la Ciudad Autónoma de Buenos Aires, incluyendo actuar como perito, es incompatible.",
+    tipo: "informativo",
+    siguiente: "finalizar"
+  },
+
+  nuevo_final_siguiente_agente_publico_desarrollo_actividad_privada_institucion_ninguna_nueva: {
+    pregunta: "En principio, la actividad es compatible con el ejercicio de la función pública. Igualmente, se sugiere que consultes con la OFIP.",
+    tipo: "informativo",
+    siguiente: "finalizar"
+  },
+
+  siguiente_agente_publico_desarrollo_actividad_privada_institucion_servicios_nuevax2: {
+    pregunta: "Desde el cargo",
+    tipo: "multiple_choice",
+    opciones: [
+      {
+        valor: "siguiente_agente_publico_desarrollo_actividad_privada_institucion_servicios_nuevax2",
+        texto: "Poseo alguna competencia, decisoria o no, en relación a ellos.",
+        siguiente: "final_siguiente_agente_publico_desarrollo_actividad_privada_institucion_servicios_nuevax2"
+      },
+      {
+        valor: "siguiente_agente_publico_desarrollo_actividad_privada_institucion_bienes_nuevax2",
+        texto: "El organismo donde presto funciones lo fizcaliza directamente.",
+        siguiente: "final_siguiente_agente_publico_desarrollo_actividad_privada_institucion_bienes_nuevax2"
+      },
+      {
+        valor: "siguiente_agente_publico_desarrollo_actividad_privada_institucion_abogacia_nuevax2",
+        texto: "Ninguna de las anteriores",
+        siguiente: "final_siguiente_agente_publico_desarrollo_actividad_privada_institucion_abogacia_nuevax2"
+      },
+    ]
+  },
+
+  final_siguiente_agente_publico_desarrollo_actividad_privada_institucion_servicios_nuevax2: {
+    pregunta: "Estarías realizando una actividad privada sobre la cual se configura una incompatiblidad. Te recomendamos consultar tu situación en la OFIP.",
+    tipo: "informativo",
+    siguiente: "finalizar"
+  },
+
+  final_siguiente_agente_publico_desarrollo_actividad_privada_institucion_bienes_nuevax2: {
+    pregunta: "Estarías realizando una actividad privada sobre la cual se configura una incompatiblidad. Te recomendamos consultar tu situación en la OFIP",
+    tipo: "informativo",
+    siguiente: "finalizar"
+  },
+
+  final_siguiente_agente_publico_desarrollo_actividad_privada_institucion_abogacia_nuevax2: {
+    pregunta: "En principio, la actividad es compatible con el ejercicio de la función pública. Igualmente, se sugiere que consultes con la OFIP.",
+    tipo: "informativo",
+    siguiente: "finalizar"
+  },
+
+  final_siguiente_agente_publico_desarrollo_actividad_privada_institucion_ninguna_nueva: {
+    pregunta: "En principio, la actividad es compatible con el ejercicio de la función pública. Igualmente, se sugiere que consultes con la OFIP.",
+    tipo: "informativo",
+    siguiente: "finalizar"
   },
 
   futuro_siguientex2_agente_publico_desarrollo_actividad_publica: {
@@ -1786,7 +2293,7 @@ const flujo = {
   },
 
   final_futuro_siguientex2_agente_publico_desarrollo_actividad_publica_no: {
-    pregunta: "Está vedado el ejercicio de cualquier empleo o función pública a nivel nacional, provincial, municipal o de la Ciudad, salvo que el Poder Ejecutivo, fundadamente, lo autorice. Con la única excepción de la docencia (Ley 471).",
+    pregunta: "Está vedado el ejercicio de cualquier empleo o función pública a nivel nacional, provincial, municipal o de la Ciudad, salvo que el Poder Ejecutivo, fundadamente, lo autorice. Con la única excepción de la docencia.",
     tipo: "informativo",
     siguiente: "finalizar"
   },
@@ -1861,6 +2368,120 @@ function mostrarPregunta(id) {
   const nodo = flujo[id];
   if (!nodo) return;
 
+  // === MAPEO EXPLÍCITO DE COLORES POR ID DE NODO FINAL ===
+  // Basado 100% en tu clasificación textual y en el contenido del flujo
+  const coloresPorId = {
+    // === ROJO ===
+    final_privada_abogacia: "rojo",
+    final_privada_bienes: "rojo",
+    construir_social_final: "rojo",
+    construir_cotizacion_final: "rojo",
+    respuesta_titular_ente_regulador: "rojo",
+    final_socio_empresa_regulada: "rojo",
+    final_socio_empresa_abogado: "rojo",
+    final_bonos_anonimas: "rojo",
+    final_bonos_comerciales: "rojo",
+    final_asumir_privada_no_pasaron: "rojo",
+    final_siguientex3_agente_publico_desarrolle_actividad_privada_si_nopasaron: "rojo",
+    final_siguiente_agente_publico_desarrollo_actividad_privada_institucion_abogacia: "rojo",
+    final_ejerzo_siguiente_nueva_futuro_agente_publico_previsto_desarrollar: "rojo",
+    final_siguiente_fui_desarrollo_siguiente_no_bienes_six2_nox3: "rojo",
+    final_competencia_art26: "rojo",
+    final_organismo_art26: "rojo",
+    final_influencia_art27: "rojo",
+    final_nuevo_poseo_nuevo_siguiente_presto_siguiente_nueva_futuro_agente_publico_previsto_desarrollar: "rojo",
+    final_nuevo_organismo_nuevo_siguiente_presto_siguiente_nueva_futuro_agente_publico_previsto_desarrollar: "rojo",
+    nuevo_final_proveo_siguiente_nueva_futuro_agente_publico_previsto_desarrollar: "rojo",
+    nuevo_final_ejerzo_siguiente_nueva_futuro_agente_publico_previsto_desarrollar: "rojo",
+    final_organismo_nuevo_siguiente_siguiente_agente_publico_desarrollo_actividad_privada_institucion_servicios_nueva: "rojo",
+    final_poseo_nuevo_siguiente_siguiente_agente_publico_desarrollo_actividad_privada_institucion_servicios_nueva: "rojo",
+    nuevo_final_siguiente_agente_publico_desarrollo_actividad_privada_institucion_abogacia_nueva: "rojo",
+    nuevo_final_siguiente_agente_publico_desarrollo_actividad_privada_institucion_bienes_nueva: "rojo",
+    final_siguiente_agente_publico_soy_empresa_abogado_nuevo: "rojo",
+    final_siguientex2_agente_publico_desarrollo_actividad_privada_institucion_servicios_nuevo_presto: "rojo",
+    final_siguientex2_agente_publico_desarrollo_actividad_privada_institucion_servicios_organismo_nuevo: "rojo",
+    final_siguiente_agente_publico_desarrollo_actividad_privada_institucion_bienes_nuevo: "rojo",
+    final_siguiente_agente_publico_previsto_desarrollar_publica_no_nuevo: "rojo",
+
+    // === AMARILLO ===
+    final_siguientex3_fui_desarrollo_siguiente_no_participar_si_nox3: "amarillo",
+    final_designado_siguiente_siguiente_no_si: "amarillo",
+    final_nuevo_ninguno_nuevo_siguiente_presto_siguiente_nueva_futuro_agente_publico_previsto_desarrollar: "amarillo",
+    nuevo_final_ninguna_siguiente_nueva_futuro_agente_publico_previsto_desarrollar: "amarillo",
+    final_ninguna_nuevo_siguiente_siguiente_agente_publico_desarrollo_actividad_privada_institucion_servicios_nueva: "amarillo",
+    final_siguiente_privada_individual_servicios_nuevo: "amarillo",
+    final_privada_individual_bienes_nuevo: "amarillo",
+    final_siguientex3_agente_publico_previsto_desarrollar_publica_si_nox4: "amarillo",
+    final_siguientex3_funcion_publica_no: "amarillo",
+    final_siguientex2_fui_desarrollo_siguiente_no_bienes_six2_nox3: "amarillo",
+    final_siguientex3_fui_desarrollo_siguiente_no_relaciones_si_no: "amarillo",
+    final_siguientex2_fui_desarrollo_siguiente_si_no_si_nuevo: "amarillo",
+    final_siguientex2_fui_desarrollo_siguiente_si_no_si: "amarillo",
+    final_socio_empresa_presta_servicios: "amarillo",
+    final_siguiente_fui_desarrollo_siguiente_si_si: "amarillo",
+    final_socio_empresa_bienes: "amarillo",
+    siguiente_agente_publico_desarrollo_actividad_privada_institucion_ninguna_nuevo: "amarillo",
+    final_socio_empresa_dirije: "amarillo",
+    final_socio_empresa_social: "amarillo",
+    final_socio_empresa_vinculacion: "amarillo",
+    final_socio_empresa_actividades: "amarillo",
+    final_siguiente_agente_publico_soy_empresa_servicios: "amarillo",
+    final_siguiente_agente_publico_soy_empresa_bienes: "amarillo",
+    final_siguiente_agente_publico_soy_empresa_dirije: "amarillo",
+    final_siguiente_agente_publico_desarrollo_actividad_privada_institucion_bienes: "amarillo",
+    final_negocio_docente_no: "amarillo",
+    final_asumir_privada_socio: "amarillo",
+    nuevo_final_siguiente_agente_publico_desarrollo_actividad_privada_institucion_ninguna_nueva: "amarillo",
+    final_no_siguiente_si_siguiente_ninguna_siguiente_privada_individual_servicios_nuevo: "amarillo",
+    final_siguiente_agente_publico_previsto_desarrollar_publica_no: "amarillo",
+    final_agente_publico_desarrollo_actividad_publica_municipal: "amarillo",
+    final_futura_respuesta_otra_publica_no: "amarillo",
+    final_futuro_siguientex2_agente_publico_desarrollo_actividad_publica_no: "amarillo",
+    final_agente_publico_desarrollo_actividad_publica_docente: "amarillo",
+    final_siguientex2_agente_publico_desarrollo_actividad_privada_institucion_servicios_ninguna_nuevo: "amarillo",
+
+    // === VERDE ===
+    final_otra_publica: "verde",
+    final_si_siguiente_si_siguiente_ninguna_siguiente_privada_individual_servicios_nuevo: "verde",
+    final_no_siguiente_ninguna_siguiente_privada_individual_servicios_nuevo: "verde",
+    final_otra_publica_docencia: "verde",
+    final_privada_individual: "verde",
+    final_privada_ninguna: "verde",
+    final_socio_no: "verde",
+    final_negocio_no: "verde",
+    final_negocio_docente_si: "verde",
+    final_socio_empresa_ninguna: "verde",
+    final_siguiente_agente_publico_soy_empresa_ninguna: "verde",
+    final_siguiente_agente_publico_desarrollo_actividad_privada_institucion_abogacia_nuevax2: "verde",
+    final_siguiente_agente_publico_desarrollo_actividad_privada_institucion_ninguna_nueva: "verde",
+    final_ejerzo_nueva_presto_siguiente_nueva_futuro_agente_publico_previsto_desarrollar: "verde",
+    final_ninguna_siguiente_nueva_futuro_agente_publico_previsto_desarrollar: "verde",
+    final_futura_respuesta_otra_publica_si: "verde",
+    final_futuro_siguientex2_agente_publico_desarrollo_actividad_publica_si: "verde",
+    final_siguiente_funcion_publica_no: "verde",
+    final_siguientex2_siguiente_funcion_publica_si: "verde",
+    final_siguientex3_siguiente_funcion_publica_si: "verde",
+    final_antes_asumir_publica: "verde",
+    final_siguiente_antes_asumir_privada_no: "verde",
+    final_asumir_privada_si_pasaron: "verde",
+    final_bonos_ninguna: "verde",
+    final_siguiente_agente_publico_desarrolle_actividad_publica: "verde",
+    final_siguientex2_agente_publico_desarrolle_actividad_privada_no: "verde",
+    final_siguientex3_agente_publico_desarrolle_actividad_privada_si_pasaron: "verde",
+    fui_final_no: "verde",
+    designado_final_no: "verde",
+    designado_siguiente_final_si: "verde",
+    final_designado_siguiente_siguiente_no_no: "verde",
+    final_siguiente_fui_desarrollo_siguiente_si_si: "verde",
+    final_siguientex2_fui_desarrollo_siguiente_no_bienes_no: "verde",
+    final_fotra_actividad_publica_respuesta_rama_1: "verde",
+    final_fotra_actividad_publica_respuesta_rama_2: "verde",
+    final_siguientex3_agente_publico_previsto_desarrollar_publica_si_nox2_six2_nuevo: "verde",
+    final_siguientex3_agente_publico_previsto_desarrollar_publica_six3_nuevo: "verde",
+    final_siguientex2_agente_publico_previsto_desarrollar_publica_si_no_nuevo: "verde",
+    construir_competencia_final: "verde"
+  };
+
   // Manejo del nodo final
   if (nodo.tipo === "final") {
     clearInterval(temporizador);
@@ -1868,10 +2489,28 @@ function mostrarPregunta(id) {
     return;
   }
 
-  // Si es un nodo informativo cuyo siguiente es 'finalizar', mostrar botón para reiniciar
+  // Generar breadcrumb
+  const breadcrumbHTML = generarBreadcrumb();
+
+  // Si es un nodo informativo cuyo siguiente es 'finalizar'
   if (nodo.tipo === "informativo" && nodo.siguiente === "finalizar") {
+    let claseAlerta = "alerta-amarillo"; // fallback
+
+    const color = coloresPorId[id];
+    if (color === "verde") {
+      claseAlerta = "alerta-verde";
+    } else if (color === "rojo") {
+      claseAlerta = "alerta-rojo";
+    } else if (color === "amarillo") {
+      claseAlerta = "alerta-amarillo";
+    }
+
+    const mensajeConContacto = `${nodo.pregunta}<br><br>Para consultas, contactá a la OFIP: <a href="mailto:ofip@buenosaires.gob.ar">ofip@buenosaires.gob.ar</a>`;
     preguntaContainer.innerHTML = `
-      <p><strong>${nodo.pregunta}</strong></p>
+      ${breadcrumbHTML}
+      <div class="${claseAlerta}">
+        <strong>${mensajeConContacto}</strong>
+      </div>
       <div style="display: flex; justify-content: center; margin-top: 20px;">
         <button onclick="reiniciarEncuesta()" class="btn btn-inicio">🔄 Volver a comenzar</button>
       </div>
@@ -1880,15 +2519,7 @@ function mostrarPregunta(id) {
   }
 
   // Determinar si se debe mostrar el botón Atrás
-  let mostrarAtras = true;
-  if (
-    id === "inicio" ||
-    nodo.pregunta === "¿Cuál es tu situación actual?" ||
-    (nodo.tipo === "informativo" && nodo.siguiente === "finalizar")
-  ) {
-    mostrarAtras = false;
-  }
-
+  let mostrarAtras = id !== "inicio";
   const opcionesHTML = nodo.opciones
     ? nodo.opciones.map(op => 
         `<button onclick="irA('${op.siguiente}', '${op.valor}', '${nodo.pregunta}', '${op.texto}')">${op.texto}</button>`
@@ -1896,29 +2527,75 @@ function mostrarPregunta(id) {
     : "";
 
   preguntaContainer.innerHTML = `
+    ${breadcrumbHTML}
     <p><strong>${nodo.pregunta}</strong></p>
-    ${nodo.opciones ? `<div class=\"opciones\">${opcionesHTML}</div>` : ""}
-    ${mostrarAtras ? `<div style=\"margin-top:24px;text-align:center;\"><button onclick=\"volverAtras()\" class=\"btn btn-atras\">⬅️ Atrás</button></div>` : ""}
+    ${nodo.opciones ? `<div class="opciones">${opcionesHTML}</div>` : ""}
+    ${mostrarAtras ? `<div style="margin-top:24px;text-align:center;"><button onclick="volverAtras()" class="btn btn-atras">⬅️ Atrás</button></div>` : ""}
   `;
 }
 
 // Ir a siguiente paso
 function irA(proximo, valor = null, preguntaTexto = "", respuestaTexto = "") {
   if (preguntaTexto && respuestaTexto) {
-    respuestas[preguntaTexto] = respuestaTexto;
+    // Guardamos usando el ID del nodo actual como clave
+    respuestas[pasoActual] = {
+      pregunta: preguntaTexto,
+      respuesta: respuestaTexto
+    };
   }
   if (proximo) {
-    historial.push(pasoActual);
+    historial.push(pasoActual); // Guarda el paso actual ANTES de cambiarlo
     pasoActual = proximo;
     mostrarPregunta(proximo);
   }
 }
 
+// Volver al paso anterior
 function volverAtras() {
   if (historial.length > 0) {
-    pasoActual = historial.pop();
+    // 1. Obtener el ID del paso al que se va a retroceder (el último en el historial)
+    const pasoAnterior = historial[historial.length - 1];
+
+    // 2. Eliminar la respuesta asociada a ese paso anterior del objeto `respuestas`
+    //    Esto borra la respuesta que se dio *para ir desde pasoAnterior a pasoActual*
+    delete respuestas[pasoAnterior];
+
+    // 3. Actualizar pasoActual al valor obtenido
+    pasoActual = historial.pop(); // pop() también lo remueve del historial
+
+    // 4. Mostrar la pregunta del paso al que se retrocedió
     mostrarPregunta(pasoActual);
   }
+}
+
+// Generar breadcrumb
+function generarBreadcrumb() {
+  let breadcrumb = "<div class='breadcrumb' style='font-size:0.9em; color:#555; margin-bottom:16px; padding:8px; background:#f9f9f9; border-radius:4px;'>";
+  breadcrumb += "<strong>Tu recorrido:</strong> ";
+
+  // Filtramos historial para excluir nodos informativos finales y nodos sin respuesta
+  const pasos = historial.filter(id => {
+    const nodo = flujo[id];
+    const tieneRespuesta = respuestas[id] !== undefined && respuestas[id] !== null;
+    return nodo && !(nodo.tipo === "informativo" && nodo.siguiente === "finalizar") && tieneRespuesta;
+  });
+
+  const nodoActual = flujo[pasoActual];
+  const pasoActualTieneRespuesta = respuestas[pasoActual] !== undefined && respuestas[pasoActual] !== null;
+
+  if (nodoActual && !(nodoActual.tipo === "informativo" && nodoActual.siguiente === "finalizar") && pasoActualTieneRespuesta) {
+    pasos.push(pasoActual);
+  }
+
+  if (pasos.length === 0) {
+    breadcrumb += "—";
+  } else {
+    const items = pasos.map(id => respuestas[id].respuesta);
+    breadcrumb += items.join(" → ");
+  }
+
+  breadcrumb += "</div>";
+  return breadcrumb;
 }
 
 // Mostrar resultado final
