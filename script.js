@@ -748,12 +748,12 @@ const flujo = {
     opciones: [
       {
         valor: "bonos_anonimasx2",
-        texto: "Sociedad/es anónima/s que hace/n oferta pública o cotización de sus acciones y que, a la vez, su actividad se encuentra sujeta al ámbito la competencia de mi futuro cargo o su cotización podrá verse influenciada por los actos que emitiré.",
+        texto: "Sociedades anónimas que hacen oferta pública o cotización de sus acciones y que su actividad se encuentra sujeta al ámbito de mi competencia o su cotización puede verse influenciada por los actos que emita.",
         siguiente: "final_bonos_anonimas"
       },
       {
         valor: "bonos_comercialesx2",
-        texto: "Sociedad/es comerciales que no haga/n oferta pública o cotización de sus acciones y que, a la vez, su actividad se encuentra sujeta al ámbito de la competencia de mi futuro cargo y en una cantidad suficiente para formar la voluntad social o para controlarla por cualquier otro medio.",
+        texto: "Sociedades comerciales que no hacen oferta pública o cotización de sus acciones y que su actividad se encuentra sujeta al ámbito de mi competencia y por una cantidad suficiente para formar la voluntad social o controlarla por cualquier medio.",
         siguiente: "final_bonos_comerciales"
       },
       {
@@ -1683,7 +1683,7 @@ const flujo = {
   // === RAMA 3: SERÉ FUNCIONARIO ===
 
   jerarquia_futura: {
-    pregunta: "¿Cuál será jerarquía actual?",
+    pregunta: "¿Cuál será tu jerarquía?",
     tipo: "multiple_choice",
     opciones: [
       {
@@ -1721,7 +1721,7 @@ const flujo = {
       {
         valor: "fantes_asumir",
         texto: "Desarrollé otra actividad antes de asumir en el cargo",
-        siguiente: "respuesta_antes_asumir"
+        siguiente: "futura_fantes_asumir"
       },
       {
         valor: "fsocio_empresa",
@@ -1731,7 +1731,63 @@ const flujo = {
       {
         valor: "facciones_bonos",
         texto: "Soy titular de acciones, bonos o cualquier otro título valor emitido por sociedad/es",
-        siguiente: "respuesta_acciones_bonosx2"
+        siguiente: "siguiente_facciones_bonos"
+      }
+    ]
+  },
+
+  siguiente_facciones_bonos: {
+    pregunta: "Las acciones, bonos o cualquier otro título valor que posees fueron emitidos por",
+    tipo: "multiple_choice",
+    opciones: [
+      {
+        valor: "siguiente_facciones_bonos_anonimas",
+        texto: "Sociedad/es anónima/s que hace/n oferta pública o cotización de sus acciones y que, a la vez, su actividad se encuentra sujeta al ámbito de competencia de mi futuro cargo o su cotización podrá verse influenciada por los actos que emitiré",
+        siguiente: "final_bonos_anonimas"
+      },
+      {
+        valor: "siguiente_facciones_bonos_comerciales",
+        texto: "Sociedad/es comerciales que no haga/n oferta pública o cotización de sus acciones y que, a la vez, su actividad se encuentra sujeta al ámbito de la competencia de mi futuro cargo y en una cantidad suficiente para formar la voluntad social o para controlarla por cualquier otro medio.",
+        siguiente: "final_bonos_comerciales"
+      },
+      {
+        valor: "siguiente_facciones_bonos_ninguna",
+        texto: "Ninguna de las anteriores",
+        siguiente: "final_bonos_ninguna"
+      }
+    ]
+  },
+
+  futura_fantes_asumir: {
+    pregunta: "Desarrollé otra actividad ...",
+    tipo: "multiple_choice",
+    opciones: [
+      {
+        valor: "futura_fantes_asumir",
+        texto: "Pública",
+        siguiente: "final_antes_asumir_publica"
+      },
+      {
+        valor: "futura_fantes_asumir_privada",
+        texto: "Privada",
+        siguiente: "siguiente_futura_fantes_asumir_privada"
+      }
+    ]
+  },
+
+  siguiente_futura_fantes_asumir_privada: {
+    pregunta: "¿En el ejercicio del cargo tendrás intervención en asuntos vinculados a las sociedades de las que fuiste socio/a o de las que formaste parte del órgano de administración o de su controlante?",
+    tipo: "multiple_choice",
+    opciones: [
+      {
+        valor: "siguiente_antes_asumir_privada_no",
+        texto: "No",
+        siguiente: "final_siguiente_antes_asumir_privada_no"
+      },
+      {
+        valor: "siguiente_antes_asumir_privada_si",
+        texto: "Si",
+        siguiente: "siguientex2_antes_asumir_privada_si"
       }
     ]
   },
@@ -2389,6 +2445,10 @@ function mostrarPregunta(id) {
     final_competencia_art26: "rojo",
     final_organismo_art26: "rojo",
     final_influencia_art27: "rojo",
+    final_asumir_privada_socio: "rojo",
+    final_futuro_siguientex2_agente_publico_desarrollo_actividad_publica_no: "rojo",
+    final_siguientex3_agente_publico_desarrolle_actividad_privada_si_socio: "rojo",
+    final_agente_publico_desarrollo_actividad_publica_municipal: "rojo",
     final_nuevo_poseo_nuevo_siguiente_presto_siguiente_nueva_futuro_agente_publico_previsto_desarrollar: "rojo",
     final_nuevo_organismo_nuevo_siguiente_presto_siguiente_nueva_futuro_agente_publico_previsto_desarrollar: "rojo",
     nuevo_final_proveo_siguiente_nueva_futuro_agente_publico_previsto_desarrollar: "rojo",
@@ -2406,9 +2466,6 @@ function mostrarPregunta(id) {
     // === AMARILLO ===
     final_siguientex3_fui_desarrollo_siguiente_no_participar_si_nox3: "amarillo",
     final_designado_siguiente_siguiente_no_si: "amarillo",
-    final_nuevo_ninguno_nuevo_siguiente_presto_siguiente_nueva_futuro_agente_publico_previsto_desarrollar: "amarillo",
-    nuevo_final_ninguna_siguiente_nueva_futuro_agente_publico_previsto_desarrollar: "amarillo",
-    final_ninguna_nuevo_siguiente_siguiente_agente_publico_desarrollo_actividad_privada_institucion_servicios_nueva: "amarillo",
     final_siguiente_privada_individual_servicios_nuevo: "amarillo",
     final_privada_individual_bienes_nuevo: "amarillo",
     final_siguientex3_agente_publico_previsto_desarrollar_publica_si_nox4: "amarillo",
@@ -2420,7 +2477,6 @@ function mostrarPregunta(id) {
     final_socio_empresa_presta_servicios: "amarillo",
     final_siguiente_fui_desarrollo_siguiente_si_si: "amarillo",
     final_socio_empresa_bienes: "amarillo",
-    siguiente_agente_publico_desarrollo_actividad_privada_institucion_ninguna_nuevo: "amarillo",
     final_socio_empresa_dirije: "amarillo",
     final_socio_empresa_social: "amarillo",
     final_socio_empresa_vinculacion: "amarillo",
@@ -2430,18 +2486,18 @@ function mostrarPregunta(id) {
     final_siguiente_agente_publico_soy_empresa_dirije: "amarillo",
     final_siguiente_agente_publico_desarrollo_actividad_privada_institucion_bienes: "amarillo",
     final_negocio_docente_no: "amarillo",
-    final_asumir_privada_socio: "amarillo",
-    nuevo_final_siguiente_agente_publico_desarrollo_actividad_privada_institucion_ninguna_nueva: "amarillo",
     final_no_siguiente_si_siguiente_ninguna_siguiente_privada_individual_servicios_nuevo: "amarillo",
     final_siguiente_agente_publico_previsto_desarrollar_publica_no: "amarillo",
-    final_agente_publico_desarrollo_actividad_publica_municipal: "amarillo",
     final_futura_respuesta_otra_publica_no: "amarillo",
-    final_futuro_siguientex2_agente_publico_desarrollo_actividad_publica_no: "amarillo",
-    final_agente_publico_desarrollo_actividad_publica_docente: "amarillo",
-    final_siguientex2_agente_publico_desarrollo_actividad_privada_institucion_servicios_ninguna_nuevo: "amarillo",
 
     // === VERDE ===
     final_otra_publica: "verde",
+    nuevo_final_ninguna_siguiente_nueva_futuro_agente_publico_previsto_desarrollar: "verde",
+    final_nuevo_ninguno_nuevo_siguiente_presto_siguiente_nueva_futuro_agente_publico_previsto_desarrollar: "verde",
+    nuevo_final_siguiente_agente_publico_desarrollo_actividad_privada_institucion_ninguna_nueva: "verde",
+    final_ninguna_nuevo_siguiente_siguiente_agente_publico_desarrollo_actividad_privada_institucion_servicios_nueva: "verde",
+    siguiente_agente_publico_desarrollo_actividad_privada_institucion_ninguna_nuevo: "verde",
+    final_siguientex2_agente_publico_desarrollo_actividad_privada_institucion_servicios_ninguna_nuevo: "verde",
     final_si_siguiente_si_siguiente_ninguna_siguiente_privada_individual_servicios_nuevo: "verde",
     final_no_siguiente_ninguna_siguiente_privada_individual_servicios_nuevo: "verde",
     final_otra_publica_docencia: "verde",
@@ -2451,6 +2507,7 @@ function mostrarPregunta(id) {
     final_negocio_no: "verde",
     final_negocio_docente_si: "verde",
     final_socio_empresa_ninguna: "verde",
+    final_agente_publico_desarrollo_actividad_publica_docente: "verde",
     final_siguiente_agente_publico_soy_empresa_ninguna: "verde",
     final_siguiente_agente_publico_desarrollo_actividad_privada_institucion_abogacia_nuevax2: "verde",
     final_siguiente_agente_publico_desarrollo_actividad_privada_institucion_ninguna_nueva: "verde",
